@@ -16,12 +16,12 @@ html{scroll-behavior:smooth}
 body{font-family:'Be Vietnam Pro',sans-serif;background:#FFF8F0;color:#2C1A0E;overflow-x:hidden;padding-bottom:70px}
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-thumb{background:var(--or);border-radius:2px}
- 
+
 /* SUN BG */
 .sun-bg{position:fixed;inset:0;z-index:-2;background:#FFF8F0}
 .sun-orb{position:fixed;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(255,180,60,.4) 0%,rgba(232,82,10,.2) 35%,transparent 70%);filter:blur(40px);z-index:-1;pointer-events:none}
 .grain{position:fixed;inset:0;z-index:-1;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px}
- 
+
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:999;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(255,248,240,.88);backdrop-filter:blur(20px);border-bottom:.5px solid var(--border);transition:transform .3s}
 .nav-logo{font-size:15px;font-weight:900;color:var(--brown);letter-spacing:.5px;flex-shrink:0}
@@ -39,7 +39,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;height:60px;display:flex;ali
 .mobile-menu.open{display:flex}
 @media(max-width:900px){.nav-menu{display:none}.hamburger{display:flex}}
 @media(max-width:600px){nav{padding:0 20px}}
- 
+
 /* STICKY BOTTOM */
 .sticky-bot{position:fixed;bottom:0;left:0;right:0;z-index:998;background:var(--brown);padding:10px 40px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -4px 24px rgba(0,0,0,.18)}
 .bot-text{font-size:13px;color:rgba(255,255,255,.7);white-space:nowrap}
@@ -51,7 +51,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;height:60px;display:flex;ali
 @keyframes gpulse{0%,100%{box-shadow:0 0 0 0 rgba(232,82,10,.5)}50%{box-shadow:0 0 0 8px rgba(232,82,10,0)}}
 .bot-buy:hover{background:var(--or2);animation:none}
 @media(max-width:700px){.sticky-bot{padding:8px 16px}.bot-text{display:none}.bot-support{display:none}}
- 
+
 /* SECTIONS */
 section{padding:110px 48px}
 @media(max-width:768px){section{padding:72px 24px}}
@@ -62,10 +62,10 @@ section{padding:110px 48px}
 .sec-sub{font-size:clamp(15px,1.8vw,18px);color:var(--muted);line-height:1.8;max-width:640px}
 .fade-in{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
 .fade-in.visible{opacity:1;transform:none}
- 
+
 /* GLASS CARD */
 .glass{background:rgba(255,255,255,.58);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.75);border-radius:28px;box-shadow:0 20px 45px rgba(0,0,0,.04)}
- 
+
 /* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:60px;padding-top:100px;padding-bottom:80px}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,82,10,.1);border:1px solid rgba(232,82,10,.22);padding:8px 16px;border-radius:100px;font-size:12px;font-weight:700;color:var(--or);margin-bottom:28px;letter-spacing:.5px}
@@ -82,7 +82,7 @@ section{padding:110px 48px}
 .hero-stats{display:flex;gap:28px;flex-wrap:wrap}
 .hstat-n{font-size:clamp(24px,3vw,36px);font-weight:900;color:var(--or);line-height:1}
 .hstat-l{font-size:11px;color:var(--muted);margin-top:4px}
- 
+
 /* BOOK 3D */
 .hero-right{position:relative;display:flex;justify-content:center;align-items:center;min-height:420px}
 .book-scene{position:relative;width:340px;height:400px;display:flex;align-items:center;justify-content:center}
@@ -128,7 +128,7 @@ section{padding:110px 48px}
   .fc2{bottom:-10px;left:-10px}
 }
 @media(max-width:480px){.cred-grid{grid-template-columns:1fr}.book3d{width:180px;height:252px}}
- 
+
 /* PROOF BAR */
 .proof-bar{background:var(--brown);padding:20px 48px}
 .proof-static{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0}
@@ -138,7 +138,7 @@ section{padding:110px 48px}
 .pname{font-size:13px;font-weight:700;color:#fff;white-space:nowrap}
 .prole{font-size:11px;color:rgba(255,255,255,.45);white-space:nowrap}
 @media(max-width:700px){.proof-item{padding:6px 12px;border-right:none}.prole{display:none}}
- 
+
 /* VIDEO */
 .video-sec{background:linear-gradient(160deg,#FFF3E6 0%,#FFE4C8 100%)}
 .video-inner{max-width:860px;margin:0 auto}
@@ -148,7 +148,7 @@ section{padding:110px 48px}
 .video-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
 .video-tags{display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap}
 .vtag{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:rgba(255,255,255,.6);border:1px solid rgba(232,82,10,.15);border-radius:100px;font-size:13px;color:var(--brown2);font-weight:500;backdrop-filter:blur(8px)}
- 
+
 /* TENSION */
 .tension-sec{background:linear-gradient(135deg,#1A0800 0%,#2C1000 100%);padding:100px 48px}
 .tension-label{color:var(--gold);letter-spacing:3px;font-size:11px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:16px}
@@ -162,7 +162,7 @@ section{padding:110px 48px}
 .tstat-desc strong{color:rgba(255,255,255,.85);display:block;margin-bottom:4px;font-size:14px}
 .tension-cta{margin-top:40px;text-align:center}
 .tension-cta p{font-size:16px;color:rgba(255,255,255,.6);margin-bottom:20px;font-style:italic}
- 
+
 /* ERA */
 .era-sec{background:#fff}
 .era-compare{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:52px}
@@ -179,7 +179,7 @@ section{padding:110px 48px}
 .era-item span:last-child{color:var(--brown2);font-weight:500}
 .insight-bar{margin-top:32px;padding:22px 28px;background:rgba(232,82,10,.05);border-radius:14px;border:1px solid rgba(232,82,10,.1);text-align:center}
 .insight-bar p{font-size:clamp(16px,2vw,20px);font-weight:700;color:var(--brown);font-style:italic;line-height:1.5}
- 
+
 /* PROFIT */
 .profit-sec{background:linear-gradient(160deg,#FFF8F0,#FFE8D0)}
 .profit-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:52px;align-items:start}
@@ -195,7 +195,7 @@ section{padding:110px 48px}
 .profit-big{font-size:clamp(20px,2.5vw,28px);font-weight:900;line-height:1.35;margin-bottom:16px}
 .profit-body{font-size:14px;opacity:.85;line-height:1.8;margin-bottom:16px}
 .profit-warn{background:rgba(255,255,255,.15);border-radius:10px;padding:14px 16px;font-size:14px;font-weight:700;line-height:1.55;border:1px solid rgba(255,255,255,.2)}
- 
+
 /* AI */
 .ai-sec{background:#fff}
 .ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
@@ -210,7 +210,7 @@ section{padding:110px 48px}
 .ai-big{margin-top:40px;background:var(--brown);border-radius:24px;padding:40px;text-align:center;color:#fff}
 .ai-big h3{font-size:clamp(20px,3vw,32px);font-weight:900;line-height:1.35;margin-bottom:12px;letter-spacing:-.5px}
 .ai-big p{font-size:15px;color:rgba(255,255,255,.65);max-width:520px;margin:0 auto;line-height:1.75}
- 
+
 /* NO RENT */
 .norent-sec{background:linear-gradient(160deg,#FFF8F0,#FFE8D0)}
 .norent-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:52px}
@@ -220,7 +220,7 @@ section{padding:110px 48px}
 .norent-col.safe h3{color:#2A7A40}
 .norent-item{display:flex;gap:10px;margin-bottom:13px;font-size:14px;color:var(--brown2);line-height:1.65}
 .norent-item span:first-child{flex-shrink:0}
- 
+
 /* CROSS */
 .cross-sec{background:#fff}
 .cross-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:52px;align-items:center}
@@ -235,7 +235,7 @@ section{padding:110px 48px}
 .cpt-ico{font-size:20px;flex-shrink:0;margin-top:1px}
 .cpt-t{font-size:14px;font-weight:700;color:var(--brown);margin-bottom:3px}
 .cpt-d{font-size:13px;color:var(--muted);line-height:1.6}
- 
+
 /* CHAPTERS */
 .ch-sec{background:linear-gradient(160deg,#FFF3E6,#FFE4C8)}
 .ch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px}
@@ -254,7 +254,7 @@ section{padding:110px 48px}
 .ch-pts li{font-size:12px;color:var(--muted);padding-left:13px;position:relative;line-height:1.5}
 .ch-pts li::before{content:'→';position:absolute;left:0;color:var(--or);font-size:10px;top:2px}
 .ch-tag{display:inline-block;margin-top:12px;padding:3px 10px;border-radius:100px;font-size:11px;font-weight:700;background:rgba(0,0,0,.07);color:var(--brown)}
- 
+
 /* TOC */
 .toc-sec{background:#fff}
 .toc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
@@ -269,7 +269,7 @@ section{padding:110px 48px}
 .toc-items li{font-size:12px;color:var(--brown2);padding:4px 0 4px 12px;border-bottom:1px solid rgba(0,0,0,.04);position:relative;line-height:1.5}
 .toc-items li:last-child{border-bottom:none}
 .toc-items li::before{content:'·';position:absolute;left:4px;color:var(--or);font-weight:700}
- 
+
 /* TESTIMONIALS */
 .testi-sec{background:linear-gradient(160deg,#FFF3E6,#FFE4C8)}
 .main-q{border-radius:24px;padding:36px;margin-top:52px;position:relative;overflow:hidden;background:rgba(255,255,255,.7);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.8);box-shadow:0 20px 50px rgba(0,0,0,.04)}
@@ -286,7 +286,7 @@ section{padding:110px 48px}
 .tc-text{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:12px;font-style:italic}
 .tc-name{font-size:13px;font-weight:700;color:var(--brown)}
 .tc-pos{font-size:11px;color:var(--muted)}
- 
+
 /* READER REVIEWS */
 .review-sec{background:#fff}
 .rating-sum{display:flex;align-items:center;gap:24px;margin:36px 0;padding:24px;border-radius:20px;background:rgba(255,248,240,.8);border:1px solid var(--border)}
@@ -311,7 +311,7 @@ section{padding:110px 48px}
 .rv-stars{color:var(--gold);font-size:11px;letter-spacing:1px}
 .rv-text{font-size:13px;color:var(--brown2);line-height:1.75;font-style:italic;margin-bottom:8px}
 .rv-meta{font-size:11px;color:var(--muted)}
- 
+
 /* LIBRARY */
 .lib-sec{background:linear-gradient(160deg,#FFF3E6,#FFE4C8)}
 .lib-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px}
@@ -329,7 +329,7 @@ section{padding:110px 48px}
 .lib-d{font-size:13px;color:var(--muted);line-height:1.65}
 .lib-badge-wrap{text-align:center;margin-top:28px}
 .lib-badge{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:rgba(232,82,10,.07);border:1px solid rgba(232,82,10,.18);border-radius:100px;font-size:13px;color:var(--brown2);font-weight:600}
- 
+
 /* PRICING */
 .price-sec{background:#fff}
 .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px;max-width:900px;margin-left:auto;margin-right:auto}
@@ -352,7 +352,7 @@ section{padding:110px 48px}
 .pbtn.main:hover{background:var(--or2)}
 .pbtn.out{background:transparent;color:var(--or);border:1.5px solid var(--or)}
 .pbtn.out:hover{background:rgba(232,82,10,.05)}
- 
+
 /* ORDER FORM */
 .order-sec{background:linear-gradient(160deg,#FFF3E6,#FFE4C8)}
 .order-inner{max-width:540px;margin:36px auto 0}
@@ -370,7 +370,7 @@ section{padding:110px 48px}
 .trust-row{display:flex;justify-content:center;gap:16px;margin-top:14px;flex-wrap:wrap}
 .tri{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted)}
 .fg-address{transition:all .3s}
- 
+
 /* QR MODAL */
 .qr-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px}
 .qr-overlay.hidden{display:none}
@@ -390,7 +390,7 @@ section{padding:110px 48px}
 .qr-status.checking{color:#888}
 .qr-support{margin-top:14px;font-size:12px;color:var(--muted)}
 .qr-support a{color:var(--or);font-weight:600;text-decoration:none}
- 
+
 /* SUCCESS STATE */
 .qr-success{display:none;padding:16px 0}
 .qr-success.show{display:block}
@@ -398,7 +398,7 @@ section{padding:110px 48px}
 .success-title{font-size:22px;font-weight:900;color:#16a34a;margin-bottom:8px}
 .success-msg{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:16px}
 .success-close{display:inline-block;padding:12px 28px;background:#16a34a;color:#fff;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;border:none;font-family:inherit}
- 
+
 /* TIMEOUT STATE */
 .qr-timeout{display:none;padding:16px 0}
 .qr-timeout.show{display:block}
@@ -408,7 +408,7 @@ section{padding:110px 48px}
 .timeout-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 .btn-neworder{padding:10px 20px;background:var(--or);color:#fff;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;border:none;font-family:inherit}
 .btn-zalo{padding:10px 20px;background:transparent;color:var(--or);border:1.5px solid var(--or);border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;display:inline-block}
- 
+
 /* COMMUNITY */
 .comm-sec{background:linear-gradient(135deg,#1A0800,#3A1400);padding:110px 48px;text-align:center}
 .comm-t{font-size:clamp(30px,5vw,56px);font-weight:900;color:#fff;letter-spacing:-2px;line-height:1.1;margin-bottom:16px}
@@ -419,7 +419,7 @@ section{padding:110px 48px}
 .cs-l{font-size:12px;color:rgba(255,255,255,.5);margin-top:3px}
 .comm-btn{display:inline-block;background:var(--or);color:#fff;padding:16px 36px;border-radius:9px;font-weight:800;font-size:16px;text-decoration:none;transition:all .3s}
 .comm-btn:hover{background:var(--or2);transform:translateY(-2px)}
- 
+
 /* FINAL CTA */
 .final-sec{background:linear-gradient(160deg,#FFE8D0,#FFD0A0);text-align:center;padding:110px 48px}
 .final-mini{width:90px;height:126px;background:linear-gradient(160deg,#FF6B2B,#C93D00);border-radius:3px 10px 10px 3px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;text-align:center;line-height:1.4;box-shadow:-5px 5px 0 #7A2000,0 14px 32px rgba(232,82,10,.4);margin:0 auto 32px;padding:10px}
@@ -427,7 +427,7 @@ section{padding:110px 48px}
 .final-s{font-size:clamp(15px,1.8vw,18px);color:var(--brown2);max-width:520px;margin:0 auto 36px;line-height:1.8}
 .final-btn{display:inline-block;background:var(--brown);color:#fff;padding:18px 44px;border-radius:10px;font-weight:900;font-size:17px;text-decoration:none;transition:all .3s;box-shadow:0 10px 32px rgba(44,26,14,.25)}
 .final-btn:hover{background:#1A0F00;transform:translateY(-2px)}
- 
+
 /* FOOTER */
 footer{background:var(--brown);padding:36px 48px;text-align:center}
 .flogo{font-size:18px;font-weight:900;color:#fff;margin-bottom:8px}
@@ -439,11 +439,11 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
 </style>
 </head>
 <body>
- 
+
 <div class="sun-bg"></div>
 <div class="sun-orb"></div>
 <div class="grain"></div>
- 
+
 <!-- NAV -->
 <nav id="navbar">
   <div class="nav-logo">ECOM <span>TRUYỀN KỲ</span></div>
@@ -471,7 +471,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
   <a href="#community" onclick="closeMenu()">Cộng đồng</a>
   <a href="#pricing" onclick="closeMenu()" style="color:var(--or);font-weight:800">ĐẶT SÁCH →</a>
 </div>
- 
+
 <!-- STICKY BOTTOM -->
 <div class="sticky-bot">
   <div class="bot-text">Combo Ebook + Sách in chỉ <strong>420.000đ</strong> 🔥</div>
@@ -480,7 +480,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     <a href="#pricing" class="bot-buy">Đặt hàng ngay →</a>
   </div>
 </div>
- 
+
 <!-- HERO -->
 <section style="padding-top:100px;padding-bottom:80px;padding-left:48px;padding-right:48px" id="home">
   <div class="container hero">
@@ -540,7 +540,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- PROOF BAR -->
 <div class="proof-bar">
   <div class="proof-static">
@@ -552,7 +552,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     <div class="proof-item"><span class="pdot"></span><span class="pname">Nguyễn Phương Nam</span><span class="prole">&nbsp;— CEO Aothun.vn</span></div>
   </div>
 </div>
- 
+
 <!-- VIDEO -->
 <section class="video-sec" id="video">
   <div class="container">
@@ -572,7 +572,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- TENSION -->
 <section class="tension-sec" id="tension">
   <div class="container">
@@ -592,7 +592,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- ERA -->
 <section class="era-sec" id="era">
   <div class="container">
@@ -624,7 +624,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- PROFIT -->
 <section class="profit-sec" id="profit">
   <div class="container">
@@ -648,7 +648,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- AI -->
 <section class="ai-sec" id="ai">
   <div class="container">
@@ -671,7 +671,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- NO RENT -->
 <section class="norent-sec" id="norent" style="background:#fff">
   <div class="container">
@@ -701,7 +701,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- CROSS -->
 <section class="cross-sec" id="cross">
   <div class="container">
@@ -723,7 +723,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- CHAPTERS -->
 <section class="ch-sec" id="chapters">
   <div class="container">
@@ -740,7 +740,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- TOC -->
 <section class="toc-sec" id="toc">
   <div class="container">
@@ -758,7 +758,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- TESTIMONIALS -->
 <section class="testi-sec" id="testimonials">
   <div class="container">
@@ -781,7 +781,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- READER REVIEWS -->
 <section class="review-sec" id="reviews">
   <div class="container">
@@ -809,7 +809,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- LIBRARY -->
 <section class="lib-sec" id="library">
   <div class="container">
@@ -829,7 +829,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- PRICING -->
 <section class="price-sec" id="pricing">
   <div class="container">
@@ -867,7 +867,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- ORDER FORM -->
 <section class="order-sec" id="order">
   <div class="container">
@@ -877,14 +877,14 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
     <div class="order-inner fade-in">
       <!-- Sản phẩm đã chọn -->
-      <div id="selectedProductDisplay" style="display:none;margin-bottom:16px;padding:14px 18px;background:rgba(232,82,10,.08);border:1.5px solid rgba(232,82,10,.25);border-radius:12px;display:flex;justify-content:space-between;align-items:center">
+      <div id="selectedProductDisplay" style="display:none;margin-bottom:16px;padding:14px 18px;background:rgba(232,82,10,.08);border:1.5px solid rgba(232,82,10,.25);border-radius:12px;justify-content:space-between;align-items:center">
         <div>
           <div style="font-size:11px;color:var(--muted);margin-bottom:2px">Sản phẩm đã chọn</div>
           <div id="selectedProductName" style="font-size:15px;font-weight:800;color:var(--brown)"></div>
         </div>
         <div id="selectedProductPrice" style="font-size:18px;font-weight:900;color:var(--or)"></div>
       </div>
- 
+
       <div class="form-grid">
         <div class="fg"><label class="fl">Họ và tên *</label><input class="fi" id="f-name" type="text" placeholder="Nguyễn Văn A"></div>
         <div class="fg"><label class="fl">Số điện thoại *</label><input class="fi" id="f-phone" type="tel" placeholder="0912 345 678"></div>
@@ -902,9 +902,33 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
           <label class="fl">Địa chỉ giao hàng *</label>
           <input class="fi" id="f-address" type="text" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành phố">
         </div>
+
+        <div class="fg full">
+          <label class="fl">Mã giảm giá (nếu có)</label>
+          <input class="fi" id="f-coupon" type="text" placeholder="Nhập mã ưu đãi nếu có" autocomplete="off" style="text-transform:uppercase">
+          <div style="font-size:11.5px;color:var(--muted);line-height:1.5">Hệ thống sẽ tự kiểm tra mã và tính lại số tiền trên QR nếu mã hợp lệ.</div>
+        </div>
+
+        <div class="fg full" style="padding:13px 14px;background:rgba(255,255,255,.62);border:1px solid var(--border);border-radius:12px">
+          <label class="fl" style="display:flex;align-items:center;gap:9px;cursor:pointer;margin-bottom:0">
+            <input id="f-invoice-requested" type="checkbox" onchange="toggleInvoiceFields()" style="width:17px;height:17px;accent-color:var(--or)">
+            Tôi cần xuất hóa đơn công ty
+          </label>
+          <div style="font-size:11.5px;color:var(--muted);line-height:1.5;margin-top:6px">Thông tin này dùng để team xử lý hóa đơn thủ công sau khi thanh toán.</div>
+        </div>
+
+        <div class="fg full" id="invoiceFields" style="display:none;padding:14px;background:rgba(232,82,10,.045);border:1px solid rgba(232,82,10,.14);border-radius:12px">
+          <div class="form-grid" style="gap:12px">
+            <div class="fg full"><label class="fl">Tên công ty *</label><input class="fi" id="f-invoice-company-name" type="text" placeholder="CÔNG TY TNHH ABC"></div>
+            <div class="fg"><label class="fl">Mã số thuế *</label><input class="fi" id="f-invoice-tax-code" type="text" placeholder="0312345678"></div>
+            <div class="fg"><label class="fl">Email nhận hóa đơn *</label><input class="fi" id="f-invoice-email" type="email" placeholder="ketoan@congty.com"></div>
+            <div class="fg full"><label class="fl">Địa chỉ công ty (nếu có)</label><input class="fi" id="f-invoice-company-address" type="text" placeholder="Địa chỉ đăng ký thuế, nếu nhớ"></div>
+          </div>
+        </div>
+
         <div class="fg full"><label class="fl">Ghi chú (tuỳ chọn)</label><input class="fi" id="f-note" type="text" placeholder="Yêu cầu đặc biệt, địa chỉ thêm..."></div>
       </div>
- 
+
       <div style="margin-top:14px;padding:12px 16px;background:rgba(255,255,255,.6);border-radius:10px;border:1px solid var(--border);display:flex;align-items:center;gap:10px">
         <span style="font-size:20px">📱</span>
         <div>
@@ -912,7 +936,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
           <div style="font-size:12px;color:var(--muted)">Hệ thống tự động xác nhận — nhận email trong vài phút sau thanh toán</div>
         </div>
       </div>
- 
+
       <button class="sub-btn" id="submitBtn" onclick="doOrder()">🛒 XÁC NHẬN ĐẶT SÁCH</button>
       <div class="trust-row">
         <span class="tri">📚 NXB Hà Nội</span>
@@ -923,12 +947,12 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- QR MODAL -->
 <div class="qr-overlay hidden" id="qrOverlay">
   <div class="qr-box">
     <button class="qr-close" onclick="closeQR()" title="Đóng">✕</button>
- 
+
     <!-- Màn hình QR chính -->
     <div id="qrMain">
       <div class="qr-step">Bước 2 / 2</div>
@@ -943,7 +967,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
       <div class="qr-status checking" id="qrStatus">🔄 Đang chờ thanh toán...</div>
       <div class="qr-support">Cần hỗ trợ? <a href="https://zalo.me/g/vcrcrg823" target="_blank">Nhóm Zalo hỗ trợ →</a></div>
     </div>
- 
+
     <!-- Màn hình thành công -->
     <div class="qr-success" id="qrSuccess">
       <span class="success-ico">✅</span>
@@ -951,7 +975,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
       <div class="success-msg">Đơn hàng của bạn đã được xác nhận.<br>Chúng tôi đã gửi email xác nhận tới địa chỉ bạn đăng ký.<br><br>Vui lòng kiểm tra hộp thư (kể cả mục Spam / Promotions).</div>
       <button class="success-close" onclick="closeQR()">Đóng</button>
     </div>
- 
+
     <!-- Màn hình timeout -->
     <div class="qr-timeout" id="qrTimeout">
       <span class="timeout-ico">⏰</span>
@@ -968,7 +992,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </div>
- 
+
 <!-- COMMUNITY -->
 <section class="comm-sec" id="community">
   <div class="container">
@@ -985,7 +1009,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     </div>
   </div>
 </section>
- 
+
 <!-- FINAL CTA -->
 <section class="final-sec">
   <div class="container fade-in" style="text-align:center">
@@ -995,7 +1019,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
     <a href="#pricing" class="final-btn">Đặt sách — nhận trong 2–5 ngày →</a>
   </div>
 </section>
- 
+
 <!-- FOOTER -->
 <footer>
   <div class="flogo">ECOM <span>TRUYỀN KỲ</span></div>
@@ -1006,21 +1030,45 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
   </div>
   <div class="fcopy">© 2026 Lê Anh Tuấn · Ecom Truyền Kỳ · NXB Hà Nội</div>
 </footer>
- 
+
 <script>
 const WORKER_URL = 'https://ecom-truyen-ky-payment.huytrann1409.workers.dev';
+
+// Chuẩn hóa ô mã ưu đãi: không hard-code mã, chỉ xóa khoảng trắng và viết hoa.
+// Dùng blur để tránh làm nhảy con trỏ khi khách đang gõ trên điện thoại.
+// Khi submit vẫn gọi normalizeCoupon() thêm một lần để đảm bảo backend nhận dữ liệu sạch.
+function normalizeCoupon() {
+  const couponInput = document.getElementById('f-coupon');
+  if (couponInput) {
+    couponInput.value = couponInput.value.replace(/\s+/g, '').toUpperCase();
+  }
+}
+
+const couponInput = document.getElementById('f-coupon');
+if (couponInput) {
+  couponInput.addEventListener('blur', normalizeCoupon);
+}
+
+// Xóa viền đỏ ngay khi khách bắt đầu sửa dữ liệu lỗi.
+document
+  .querySelectorAll('#f-name, #f-phone, #f-email, #f-address, #f-invoice-company-name, #f-invoice-tax-code, #f-invoice-email')
+  .forEach(inputField => {
+    inputField.addEventListener('input', function () {
+      this.classList.remove('err');
+    });
+  });
 const PRODUCT_INFO = {
   ebook: { name: 'Ebook PDF — Ecom Truyền Kỳ', price: '199.000đ' },
   sach:  { name: 'Sách in — Ecom Truyền Kỳ',   price: '349.000đ' },
   combo: { name: 'Combo Ebook + Sách in',        price: '420.000đ' },
 };
- 
+
 // ── Fade-in scroll ───────────────────────────────────────
 const obs = new IntersectionObserver(es => {
   es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
- 
+
 // ── Navbar hide/show + active ────────────────────────────
 let lastY = 0;
 const navbar = document.getElementById('navbar');
@@ -1036,24 +1084,24 @@ window.addEventListener('scroll', () => {
     a.classList.toggle('active', r.top <= 80 && r.bottom > 80);
   });
 });
- 
+
 // ── Hamburger ────────────────────────────────────────────
 function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
 function closeMenu()  { document.getElementById('mobileMenu').classList.remove('open'); }
- 
+
 // ── Pricing cards → jump to form ────────────────────────
 function selectProduct(val) {
   document.getElementById('f-product').value = val;
   onProductChange();
   document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
 }
- 
+
 // ── Product change: show/hide address ───────────────────
 function onProductChange() {
   const val = document.getElementById('f-product').value;
   const addrGroup = document.getElementById('addressGroup');
   const addrInput = document.getElementById('f-address');
- 
+
   if (val === 'ebook') {
     addrGroup.style.display = 'none';
     addrInput.required = false;
@@ -1061,7 +1109,7 @@ function onProductChange() {
     addrGroup.style.display = 'flex';
     addrInput.required = true;
   }
- 
+
   // Hiển thị sản phẩm đã chọn
   const display = document.getElementById('selectedProductDisplay');
   if (val && PRODUCT_INFO[val]) {
@@ -1072,16 +1120,44 @@ function onProductChange() {
     display.style.display = 'none';
   }
 }
- 
+
+// ── Invoice toggle ───────────────────────────────────────
+function toggleInvoiceFields() {
+  const checked = document.getElementById('f-invoice-requested').checked;
+  const box = document.getElementById('invoiceFields');
+  const companyName = document.getElementById('f-invoice-company-name');
+  const taxCode = document.getElementById('f-invoice-tax-code');
+  const invoiceEmail = document.getElementById('f-invoice-email');
+
+  box.style.display = checked ? 'block' : 'none';
+  companyName.required = checked;
+  taxCode.required = checked;
+  invoiceEmail.required = checked;
+
+  if (!checked) {
+    ['f-invoice-company-name','f-invoice-tax-code','f-invoice-email','f-invoice-company-address']
+      .forEach(id => document.getElementById(id).classList.remove('err'));
+  }
+}
+
 // ── Validate + gọi Worker ────────────────────────────────
 async function doOrder() {
+  normalizeCoupon();
+
   const name    = document.getElementById('f-name').value.trim();
   const phone   = document.getElementById('f-phone').value.trim();
   const email   = document.getElementById('f-email').value.trim();
   const product = document.getElementById('f-product').value;
   const address = document.getElementById('f-address').value.trim();
   const note    = document.getElementById('f-note').value.trim();
- 
+
+  const coupon_code = document.getElementById('f-coupon').value.trim().toUpperCase();
+  const is_invoice_requested = document.getElementById('f-invoice-requested').checked;
+  const invoice_company_name = document.getElementById('f-invoice-company-name').value.trim();
+  const invoice_tax_code = document.getElementById('f-invoice-tax-code').value.trim();
+  const invoice_company_address = document.getElementById('f-invoice-company-address').value.trim();
+  const invoice_email = document.getElementById('f-invoice-email').value.trim().toLowerCase();
+
   // Validate
   let hasErr = false;
   const fields = [
@@ -1100,28 +1176,74 @@ async function doOrder() {
     if (!address) { addrEl.classList.add('err'); hasErr = true; }
     else { addrEl.classList.remove('err'); }
   }
-  if (hasErr) return;
- 
+
+  if (is_invoice_requested) {
+    const invoiceFields = [
+      { id: 'f-invoice-company-name', cond: invoice_company_name.length > 0 },
+      { id: 'f-invoice-tax-code', cond: invoice_tax_code.length > 0 },
+      { id: 'f-invoice-email', cond: invoice_email.includes('@') },
+    ];
+    invoiceFields.forEach(f => {
+      const el = document.getElementById(f.id);
+      if (!f.cond) { el.classList.add('err'); hasErr = true; }
+      else { el.classList.remove('err'); }
+    });
+  }
+
+  if (hasErr) {
+    const firstErrField = document.querySelector('.err');
+
+    if (
+      is_invoice_requested &&
+      invoice_email.length > 0 &&
+      !invoice_email.includes('@')
+    ) {
+      alert('Vui lòng nhập đúng định dạng Email nhận hóa đơn, ví dụ: ketoan@congty.com');
+    } else {
+      alert('Vui lòng kiểm tra và điền đầy đủ các thông tin bắt buộc đang được đánh dấu đỏ.');
+    }
+
+    if (firstErrField) {
+      firstErrField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => firstErrField.focus(), 300);
+    }
+
+    return;
+  }
+
   // Gọi Worker
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
   btn.textContent = '⏳ Đang tạo đơn...';
- 
+
   try {
     const res = await fetch(`${WORKER_URL}/create-order`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, phone, email, product, address, note }),
+      body: JSON.stringify({
+        name,
+        phone,
+        email,
+        product,
+        address,
+        note,
+        coupon_code,
+        is_invoice_requested,
+        invoice_company_name,
+        invoice_tax_code,
+        invoice_company_address,
+        invoice_email
+      }),
     });
     const data = await res.json();
- 
+
     if (!data.ok) {
       alert('❌ ' + (data.error || 'Có lỗi xảy ra, vui lòng thử lại.'));
       return;
     }
- 
+
     showQRModal(data.order_id, data.amount, data.qr_url);
- 
+
   } catch (err) {
     alert('❌ Không kết nối được server. Vui lòng kiểm tra mạng và thử lại.');
   } finally {
@@ -1129,43 +1251,43 @@ async function doOrder() {
     btn.textContent = '🛒 XÁC NHẬN ĐẶT SÁCH';
   }
 }
- 
+
 // ── QR Modal ─────────────────────────────────────────────
 let pollInterval = null;
 let countdownInterval = null;
 let currentOrderId = null;
- 
+
 function showQRModal(orderId, amount, qrUrl) {
   currentOrderId = orderId;
- 
+
   document.getElementById('qrAmount').textContent =
     Number(amount).toLocaleString('vi-VN') + 'đ';
   document.getElementById('qrContent').textContent = orderId;
   document.getElementById('qrImg').src = qrUrl;
- 
+
   // Reset states
   document.getElementById('qrMain').style.display = 'block';
   document.getElementById('qrSuccess').classList.remove('show');
   document.getElementById('qrTimeout').classList.remove('show');
   document.getElementById('qrStatus').textContent = '🔄 Đang chờ thanh toán...';
- 
+
   document.getElementById('qrOverlay').classList.remove('hidden');
- 
+
   startCountdown(5 * 60); // 5 phút
   startPolling(orderId);
 }
- 
+
 function startCountdown(seconds) {
   clearInterval(countdownInterval);
   let remaining = seconds;
   const el = document.getElementById('qrCountdown');
- 
+
   countdownInterval = setInterval(() => {
     remaining--;
     const m = Math.floor(remaining / 60);
     const s = remaining % 60;
     el.textContent = `${m}:${String(s).padStart(2, '0')}`;
- 
+
     if (remaining <= 0) {
       clearInterval(countdownInterval);
       stopPolling();
@@ -1173,7 +1295,7 @@ function startCountdown(seconds) {
     }
   }, 1000);
 }
- 
+
 function startPolling(orderId) {
   clearInterval(pollInterval);
   pollInterval = setInterval(async () => {
@@ -1187,24 +1309,29 @@ function startPolling(orderId) {
     } catch (_) { /* bỏ qua lỗi mạng tạm thời */ }
   }, 5000);
 }
- 
+
 function stopPolling() { clearInterval(pollInterval); }
 function stopAll() { clearInterval(pollInterval); clearInterval(countdownInterval); }
- 
+
 function showSuccess() {
   document.getElementById('qrMain').style.display = 'none';
   document.getElementById('qrSuccess').classList.add('show');
 }
- 
+
 function showTimeout() {
   document.getElementById('qrMain').style.display = 'none';
   document.getElementById('qrTimeout').classList.add('show');
 }
- 
+
 function closeQR() {
+  const ok = confirm(
+    'Bạn đang ở bước thanh toán. Nếu đã chuyển khoản, hệ thống vẫn sẽ xác nhận và gửi email tự động. Bạn có chắc muốn đóng mã QR không?'
+  );
+
+  if (!ok) return;
+
   stopAll();
   document.getElementById('qrOverlay').classList.add('hidden');
-  currentOrderId = null;
 }
 </script>
 </body>
