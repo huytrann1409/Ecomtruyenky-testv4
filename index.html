@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Ecom Truyền Kỳ — Lê Anh Tuấn</title>
+<meta name="description" content="25 năm lịch sử Ecom Việt Nam trong 300 trang. Hầu hết shop đóng cửa trước 3 năm — cuốn sách này giải thích tại sao và bạn phải làm gì khác đi.">
+<meta property="og:title" content="Ecom Truyền Kỳ — Lê Anh Tuấn">
+<meta property="og:description" content="25 năm lịch sử Ecom Việt Nam trong 300 trang. Hầu hết shop đóng cửa trước 3 năm — cuốn sách này giải thích tại sao và bạn phải làm gì khác đi.">
+<meta property="og:image" content="https://ecomtruyenky.com/og-cover.jpg">
+<meta property="og:url" content="https://ecomtruyenky.com">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="vi_VN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ecom Truyền Kỳ — Lê Anh Tuấn">
+<meta name="twitter:description" content="25 năm lịch sử Ecom Việt Nam trong 300 trang.">
+<meta name="twitter:image" content="https://ecomtruyenky.com/og-cover.jpg">
+<link rel="icon" type="image/png" href="https://ecomtruyenky.com/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -371,7 +383,16 @@ section{padding:110px 48px}
 .tri{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted)}
 .fg-address{transition:all .3s}
 
-/* QR MODAL */
+/* COUPON APPLY */
+.coupon-wrap{display:flex;gap:8px;align-items:flex-start}
+.coupon-wrap .fi{flex:1}
+.btn-apply-coupon{padding:11px 16px;background:var(--brown);color:#fff;border:none;border-radius:9px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all .2s;flex-shrink:0}
+.btn-apply-coupon:hover{background:var(--brown2)}
+.btn-apply-coupon:disabled{opacity:.5;cursor:not-allowed}
+.coupon-result{font-size:12px;margin-top:5px;min-height:16px;line-height:1.5}
+.coupon-result.ok{color:#16a34a;font-weight:600}
+.coupon-result.fail{color:#dc2626;font-weight:600}
+
 .qr-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px}
 .qr-overlay.hidden{display:none}
 .qr-box{background:#fff;border-radius:24px;padding:32px;max-width:420px;width:100%;box-shadow:0 32px 80px rgba(0,0,0,.3);text-align:center;position:relative}
@@ -409,7 +430,17 @@ section{padding:110px 48px}
 .btn-neworder{padding:10px 20px;background:var(--or);color:#fff;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;border:none;font-family:inherit}
 .btn-zalo{padding:10px 20px;background:transparent;color:var(--or);border:1.5px solid var(--or);border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;display:inline-block}
 
-/* COMMUNITY */
+/* CUSTOM CONFIRM MODAL */
+.confirm-overlay{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px}
+.confirm-overlay.hidden{display:none}
+.confirm-box{background:#fff;border-radius:20px;padding:28px 28px 24px;max-width:360px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.25);text-align:center}
+.confirm-ico{font-size:40px;margin-bottom:10px;display:block}
+.confirm-title{font-size:17px;font-weight:800;color:var(--brown);margin-bottom:8px}
+.confirm-msg{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:20px}
+.confirm-actions{display:flex;gap:10px;flex-direction:column}
+.confirm-btn-cancel{padding:12px;background:var(--or);color:#fff;border-radius:8px;font-weight:700;font-size:14px;border:none;cursor:pointer;font-family:inherit}
+.confirm-btn-ok{padding:11px;background:transparent;color:var(--muted);border:1.5px solid rgba(0,0,0,.1);border-radius:8px;font-weight:600;font-size:13px;border:none;cursor:pointer;font-family:inherit}
+
 .comm-sec{background:linear-gradient(135deg,#1A0800,#3A1400);padding:110px 48px;text-align:center}
 .comm-t{font-size:clamp(30px,5vw,56px);font-weight:900;color:#fff;letter-spacing:-2px;line-height:1.1;margin-bottom:16px}
 .comm-s{font-size:16px;color:rgba(255,255,255,.6);margin:0 auto 36px;max-width:540px;line-height:1.8}
@@ -486,8 +517,8 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
   <div class="container hero">
     <div class="hero-left fade-in">
       <div class="hero-badge">Lời tựa: TS. Nguyễn Thành Nam — Cựu CEO FPT Software</div>
-      <h1 class="big-title">Ecom đang bước vào<br><em>cuộc thanh lọc</em><br>lớn nhất.</h1>
-      <p class="hero-sub">Cuốn sách dành cho những người muốn <strong>không bị đào thải</strong> và vẫn kiếm được tiền trong thời đại AI và doanh nghiệp thật.</p>
+      <h1 class="big-title">Hầu hết shop Ecom<br>đóng cửa <em>trước 3 năm.</em></h1>
+      <p class="hero-sub">Cuốn sách này giải thích tại sao — và <strong>bạn phải làm gì khác đi</strong> để vẫn kiếm được tiền trong thời đại AI và doanh nghiệp thật.</p>
       <div class="cred-grid">
         <div class="cred-item glass"><span class="cred-icon">✦</span>25 năm lịch sử Ecom trong một cuốn sách</div>
         <div class="cred-item glass"><span class="cred-icon">✦</span>Những đế chế từng thắng lớn rồi sụp đổ</div>
@@ -495,8 +526,8 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
         <div class="cred-item glass"><span class="cred-icon">✦</span>AI + vận hành + thương hiệu + bán nước ngoài</div>
       </div>
       <div class="hero-btns">
-        <a href="#video" class="btn-pri">▶ Xem giới thiệu sách</a>
-        <a href="#pricing" class="btn-sec">Đặt sách — nhận trong 2–5 ngày →</a>
+        <a href="#pricing" class="btn-pri">Đặt sách — nhận trong 2–5 ngày →</a>
+        <a href="#video" class="btn-sec">▶ Xem giới thiệu sách</a>
       </div>
       <div class="hero-stats">
         <div><div class="hstat-n">300+</div><div class="hstat-l">Trang sách</div></div>
@@ -882,7 +913,10 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
           <div style="font-size:11px;color:var(--muted);margin-bottom:2px">Sản phẩm đã chọn</div>
           <div id="selectedProductName" style="font-size:15px;font-weight:800;color:var(--brown)"></div>
         </div>
-        <div id="selectedProductPrice" style="font-size:18px;font-weight:900;color:var(--or)"></div>
+        <div style="text-align:right">
+          <div id="selectedProductOriginalPrice" style="font-size:12px;color:var(--muted);text-decoration:line-through;display:none"></div>
+          <div id="selectedProductPrice" style="font-size:18px;font-weight:900;color:var(--or)"></div>
+        </div>
       </div>
 
       <div class="form-grid">
@@ -905,8 +939,11 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
 
         <div class="fg full">
           <label class="fl">Mã giảm giá (nếu có)</label>
-          <input class="fi" id="f-coupon" type="text" placeholder="Nhập mã ưu đãi nếu có" autocomplete="off" style="text-transform:uppercase">
-          <div style="font-size:11.5px;color:var(--muted);line-height:1.5">Hệ thống sẽ tự kiểm tra mã và tính lại số tiền trên QR nếu mã hợp lệ.</div>
+          <div class="coupon-wrap">
+            <input class="fi" id="f-coupon" type="text" placeholder="Nhập mã ưu đãi nếu có" autocomplete="off" style="text-transform:uppercase">
+            <button type="button" class="btn-apply-coupon" id="btnApplyCoupon" onclick="applyCoupon()">Áp dụng</button>
+          </div>
+          <div class="coupon-result" id="couponResult"></div>
         </div>
 
         <div class="fg full" style="padding:13px 14px;background:rgba(255,255,255,.62);border:1px solid var(--border);border-radius:12px">
@@ -1031,37 +1068,119 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
   <div class="fcopy">© 2026 Lê Anh Tuấn · Ecom Truyền Kỳ · NXB Hà Nội</div>
 </footer>
 
+<!-- CUSTOM CONFIRM CLOSE QR -->
+<div class="confirm-overlay hidden" id="confirmOverlay">
+  <div class="confirm-box">
+    <span class="confirm-ico">❓</span>
+    <div class="confirm-title">Bạn muốn đóng mã QR?</div>
+    <div class="confirm-msg">Nếu bạn đã chuyển khoản, hệ thống vẫn tự động xác nhận và gửi email trong vài phút. Bạn không cần giữ trang này mở.</div>
+    <div class="confirm-actions">
+      <button class="confirm-btn-cancel" onclick="doCloseQR()">Tôi chưa chuyển — Đóng QR</button>
+      <button class="confirm-btn-ok" onclick="closeConfirm()">Tôi đã chuyển khoản rồi — Ở lại chờ</button>
+    </div>
+  </div>
+</div>
+
 <script>
 const WORKER_URL = 'https://ecom-truyen-ky-payment.huytrann1409.workers.dev';
 
-// Chuẩn hóa ô mã ưu đãi: không hard-code mã, chỉ xóa khoảng trắng và viết hoa.
-// Dùng blur để tránh làm nhảy con trỏ khi khách đang gõ trên điện thoại.
-// Khi submit vẫn gọi normalizeCoupon() thêm một lần để đảm bảo backend nhận dữ liệu sạch.
+// ── Coupon state ─────────────────────────────────────────
+let validatedCoupon = null; // { code, original_amount, discount_amount, final_amount }
+
 function normalizeCoupon() {
-  const couponInput = document.getElementById('f-coupon');
-  if (couponInput) {
-    couponInput.value = couponInput.value.replace(/\s+/g, '').toUpperCase();
-  }
+  const el = document.getElementById('f-coupon');
+  if (el) el.value = el.value.replace(/\s+/g, '').toUpperCase();
 }
 
 const couponInput = document.getElementById('f-coupon');
 if (couponInput) {
   couponInput.addEventListener('blur', normalizeCoupon);
+  couponInput.addEventListener('input', () => {
+    validatedCoupon = null;
+    document.getElementById('couponResult').textContent = '';
+    document.getElementById('couponResult').className = 'coupon-result';
+    updatePriceDisplay();
+  });
 }
 
-// Xóa viền đỏ ngay khi khách bắt đầu sửa dữ liệu lỗi.
-document
-  .querySelectorAll('#f-name, #f-phone, #f-email, #f-address, #f-invoice-company-name, #f-invoice-tax-code, #f-invoice-email')
-  .forEach(inputField => {
-    inputField.addEventListener('input', function () {
-      this.classList.remove('err');
+async function applyCoupon() {
+  normalizeCoupon();
+  const code    = document.getElementById('f-coupon').value.trim().toUpperCase();
+  const product = document.getElementById('f-product').value;
+  const resultEl = document.getElementById('couponResult');
+  const btn = document.getElementById('btnApplyCoupon');
+
+  if (!code) {
+    resultEl.textContent = 'Vui lòng nhập mã giảm giá.';
+    resultEl.className = 'coupon-result fail';
+    return;
+  }
+  if (!product) {
+    resultEl.textContent = 'Vui lòng chọn sản phẩm trước khi áp dụng mã.';
+    resultEl.className = 'coupon-result fail';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = '...';
+  resultEl.textContent = '';
+  resultEl.className = 'coupon-result';
+
+  try {
+    const res = await fetch(`${WORKER_URL}/validate-coupon`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ product, coupon_code: code }),
     });
-  });
+    const data = await res.json();
+
+    if (data.ok) {
+      validatedCoupon = { code, original_amount: data.original_amount, discount_amount: data.discount_amount, final_amount: data.final_amount };
+      const saved = data.discount_amount.toLocaleString('vi-VN');
+      const final = data.final_amount.toLocaleString('vi-VN');
+      resultEl.textContent = `✅ Mã hợp lệ — Giảm ${saved}đ, còn ${final}đ`;
+      resultEl.className = 'coupon-result ok';
+      updatePriceDisplay();
+    } else {
+      validatedCoupon = null;
+      resultEl.textContent = '❌ ' + (data.error || 'Mã không hợp lệ');
+      resultEl.className = 'coupon-result fail';
+      updatePriceDisplay();
+    }
+  } catch (err) {
+    resultEl.textContent = '❌ Không kiểm tra được mã, vui lòng thử lại.';
+    resultEl.className = 'coupon-result fail';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Áp dụng';
+  }
+}
+
 const PRODUCT_INFO = {
-  ebook: { name: 'Ebook PDF — Ecom Truyền Kỳ', price: '199.000đ' },
-  sach:  { name: 'Sách in — Ecom Truyền Kỳ',   price: '349.000đ' },
-  combo: { name: 'Combo Ebook + Sách in',        price: '420.000đ' },
+  ebook: { name: 'Ebook PDF — Ecom Truyền Kỳ', price: '199.000đ', raw: 199000 },
+  sach:  { name: 'Sách in — Ecom Truyền Kỳ',   price: '349.000đ', raw: 349000 },
+  combo: { name: 'Combo Ebook + Sách in',        price: '420.000đ', raw: 420000 },
 };
+
+function updatePriceDisplay() {
+  const val = document.getElementById('f-product').value;
+  const display = document.getElementById('selectedProductDisplay');
+  const origEl  = document.getElementById('selectedProductOriginalPrice');
+  const priceEl = document.getElementById('selectedProductPrice');
+
+  if (!val || !PRODUCT_INFO[val]) { display.style.display = 'none'; return; }
+
+  document.getElementById('selectedProductName').textContent = PRODUCT_INFO[val].name;
+  if (validatedCoupon && validatedCoupon.final_amount) {
+    origEl.textContent   = PRODUCT_INFO[val].price;
+    origEl.style.display = 'block';
+    priceEl.textContent  = validatedCoupon.final_amount.toLocaleString('vi-VN') + 'đ';
+  } else {
+    origEl.style.display = 'none';
+    priceEl.textContent  = PRODUCT_INFO[val].price;
+  }
+  display.style.display = 'flex';
+}
 
 // ── Fade-in scroll ───────────────────────────────────────
 const obs = new IntersectionObserver(es => {
@@ -1110,15 +1229,13 @@ function onProductChange() {
     addrInput.required = true;
   }
 
-  // Hiển thị sản phẩm đã chọn
-  const display = document.getElementById('selectedProductDisplay');
-  if (val && PRODUCT_INFO[val]) {
-    document.getElementById('selectedProductName').textContent = PRODUCT_INFO[val].name;
-    document.getElementById('selectedProductPrice').textContent = PRODUCT_INFO[val].price;
-    display.style.display = 'flex';
-  } else {
-    display.style.display = 'none';
+  if (validatedCoupon) {
+    validatedCoupon = null;
+    document.getElementById('couponResult').textContent = 'Sản phẩm thay đổi — vui lòng áp dụng lại mã giảm giá.';
+    document.getElementById('couponResult').className = 'coupon-result fail';
   }
+
+  updatePriceDisplay();
 }
 
 // ── Invoice toggle ───────────────────────────────────────
@@ -1140,6 +1257,11 @@ function toggleInvoiceFields() {
   }
 }
 
+// ── Xóa viền đỏ khi khách sửa field ─────────────────────
+document
+  .querySelectorAll('#f-name, #f-phone, #f-email, #f-address, #f-invoice-company-name, #f-invoice-tax-code, #f-invoice-email')
+  .forEach(inputField => { inputField.addEventListener('input', function () { this.classList.remove('err'); }); });
+
 // ── Validate + gọi Worker ────────────────────────────────
 async function doOrder() {
   normalizeCoupon();
@@ -1151,20 +1273,22 @@ async function doOrder() {
   const address = document.getElementById('f-address').value.trim();
   const note    = document.getElementById('f-note').value.trim();
 
-  const coupon_code = document.getElementById('f-coupon').value.trim().toUpperCase();
+  const coupon_code          = document.getElementById('f-coupon').value.trim().toUpperCase();
   const is_invoice_requested = document.getElementById('f-invoice-requested').checked;
-  const invoice_company_name = document.getElementById('f-invoice-company-name').value.trim();
-  const invoice_tax_code = document.getElementById('f-invoice-tax-code').value.trim();
+  const invoice_company_name    = document.getElementById('f-invoice-company-name').value.trim();
+  const invoice_tax_code        = document.getElementById('f-invoice-tax-code').value.trim();
   const invoice_company_address = document.getElementById('f-invoice-company-address').value.trim();
-  const invoice_email = document.getElementById('f-invoice-email').value.trim().toLowerCase();
+  const invoice_email           = document.getElementById('f-invoice-email').value.trim().toLowerCase();
 
-  // Validate
+  const phoneClean = phone.replace(/[\s.-]/g, '');
+  const phoneValid = /^(0[35789][0-9]{8}|\+?84[35789][0-9]{8})$/.test(phoneClean);
+
   let hasErr = false;
   const fields = [
-    { id: 'f-name',    val: name,    cond: name.length > 0 },
-    { id: 'f-phone',   val: phone,   cond: phone.length >= 9 },
-    { id: 'f-email',   val: email,   cond: email.includes('@') },
-    { id: 'f-product', val: product, cond: product !== '' },
+    { id: 'f-name',    cond: name.length > 0 },
+    { id: 'f-phone',   cond: phoneValid },
+    { id: 'f-email',   cond: email.includes('@') && email.includes('.') },
+    { id: 'f-product', cond: product !== '' },
   ];
   fields.forEach(f => {
     const el = document.getElementById(f.id);
@@ -1176,12 +1300,11 @@ async function doOrder() {
     if (!address) { addrEl.classList.add('err'); hasErr = true; }
     else { addrEl.classList.remove('err'); }
   }
-
   if (is_invoice_requested) {
     const invoiceFields = [
       { id: 'f-invoice-company-name', cond: invoice_company_name.length > 0 },
-      { id: 'f-invoice-tax-code', cond: invoice_tax_code.length > 0 },
-      { id: 'f-invoice-email', cond: invoice_email.includes('@') },
+      { id: 'f-invoice-tax-code',     cond: invoice_tax_code.length > 0 },
+      { id: 'f-invoice-email',        cond: invoice_email.includes('@') },
     ];
     invoiceFields.forEach(f => {
       const el = document.getElementById(f.id);
@@ -1192,26 +1315,20 @@ async function doOrder() {
 
   if (hasErr) {
     const firstErrField = document.querySelector('.err');
-
-    if (
-      is_invoice_requested &&
-      invoice_email.length > 0 &&
-      !invoice_email.includes('@')
-    ) {
+    if (!phoneValid && phone.length > 0) {
+      alert('Số điện thoại không đúng định dạng. Vui lòng nhập số điện thoại Việt Nam 10 số.');
+    } else if (is_invoice_requested && invoice_email.length > 0 && !invoice_email.includes('@')) {
       alert('Vui lòng nhập đúng định dạng Email nhận hóa đơn, ví dụ: ketoan@congty.com');
     } else {
       alert('Vui lòng kiểm tra và điền đầy đủ các thông tin bắt buộc đang được đánh dấu đỏ.');
     }
-
     if (firstErrField) {
       firstErrField.scrollIntoView({ behavior: 'smooth', block: 'center' });
       setTimeout(() => firstErrField.focus(), 300);
     }
-
     return;
   }
 
-  // Gọi Worker
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
   btn.textContent = '⏳ Đang tạo đơn...';
@@ -1220,30 +1337,26 @@ async function doOrder() {
     const res = await fetch(`${WORKER_URL}/create-order`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name,
-        phone,
-        email,
-        product,
-        address,
-        note,
-        coupon_code,
-        is_invoice_requested,
-        invoice_company_name,
-        invoice_tax_code,
-        invoice_company_address,
-        invoice_email
-      }),
+      body: JSON.stringify({ name, phone: phoneClean, email, product, address, note, coupon_code,
+        is_invoice_requested, invoice_company_name, invoice_tax_code, invoice_company_address, invoice_email }),
     });
     const data = await res.json();
-
     if (!data.ok) {
-      alert('❌ ' + (data.error || 'Có lỗi xảy ra, vui lòng thử lại.'));
+      let message = data.error || 'Có lỗi xảy ra, vui lòng thử lại.';
+
+      // Trường hợp race hợp lệ: mã vừa được báo hợp lệ lúc "Áp dụng",
+      // nhưng hết lượt trước khi khách bấm "Xác nhận đặt sách".
+      if (
+        coupon_code &&
+        /mã giảm giá|mã ưu đãi|coupon/i.test(message)
+      ) {
+        message = 'Mã ưu đãi vừa hết lượt hoặc không còn khả dụng. Vui lòng bỏ mã hoặc thử mã khác.';
+      }
+
+      alert('❌ ' + message);
       return;
     }
-
     showQRModal(data.order_id, data.amount, data.qr_url);
-
   } catch (err) {
     alert('❌ Không kết nối được server. Vui lòng kiểm tra mạng và thử lại.');
   } finally {
@@ -1259,21 +1372,15 @@ let currentOrderId = null;
 
 function showQRModal(orderId, amount, qrUrl) {
   currentOrderId = orderId;
-
-  document.getElementById('qrAmount').textContent =
-    Number(amount).toLocaleString('vi-VN') + 'đ';
+  document.getElementById('qrAmount').textContent = Number(amount).toLocaleString('vi-VN') + 'đ';
   document.getElementById('qrContent').textContent = orderId;
   document.getElementById('qrImg').src = qrUrl;
-
-  // Reset states
   document.getElementById('qrMain').style.display = 'block';
   document.getElementById('qrSuccess').classList.remove('show');
   document.getElementById('qrTimeout').classList.remove('show');
   document.getElementById('qrStatus').textContent = '🔄 Đang chờ thanh toán...';
-
   document.getElementById('qrOverlay').classList.remove('hidden');
-
-  startCountdown(5 * 60); // 5 phút
+  startCountdown(5 * 60);
   startPolling(orderId);
 }
 
@@ -1281,18 +1388,12 @@ function startCountdown(seconds) {
   clearInterval(countdownInterval);
   let remaining = seconds;
   const el = document.getElementById('qrCountdown');
-
   countdownInterval = setInterval(() => {
     remaining--;
     const m = Math.floor(remaining / 60);
     const s = remaining % 60;
     el.textContent = `${m}:${String(s).padStart(2, '0')}`;
-
-    if (remaining <= 0) {
-      clearInterval(countdownInterval);
-      stopPolling();
-      showTimeout();
-    }
+    if (remaining <= 0) { clearInterval(countdownInterval); stopPolling(); showTimeout(); }
   }, 1000);
 }
 
@@ -1300,13 +1401,10 @@ function startPolling(orderId) {
   clearInterval(pollInterval);
   pollInterval = setInterval(async () => {
     try {
-      const res = await fetch(`${WORKER_URL}/check-order?id=${orderId}`);
+      const res  = await fetch(`${WORKER_URL}/check-order?id=${orderId}`);
       const data = await res.json();
-      if (data.ok && data.status === 'PAID') {
-        stopAll();
-        showSuccess();
-      }
-    } catch (_) { /* bỏ qua lỗi mạng tạm thời */ }
+      if (data.ok && data.status === 'PAID') { stopAll(); showSuccess(); }
+    } catch (_) {}
   }, 5000);
 }
 
@@ -1323,16 +1421,22 @@ function showTimeout() {
   document.getElementById('qrTimeout').classList.add('show');
 }
 
+// ── Custom close QR confirm ──────────────────────────────
 function closeQR() {
-  const ok = confirm(
-    'Bạn đang ở bước thanh toán. Nếu đã chuyển khoản, hệ thống vẫn sẽ xác nhận và gửi email tự động. Bạn có chắc muốn đóng mã QR không?'
-  );
-
-  if (!ok) return;
-
-  stopAll();
-  document.getElementById('qrOverlay').classList.add('hidden');
+  document.getElementById('confirmOverlay').classList.remove('hidden');
 }
+
+function closeConfirm() {
+  document.getElementById('confirmOverlay').classList.add('hidden');
+}
+
+function doCloseQR() {
+  stopAll();
+  document.getElementById('confirmOverlay').classList.add('hidden');
+  document.getElementById('qrOverlay').classList.add('hidden');
+  currentOrderId = null;
+}
+
 </script>
 </body>
 </html>
