@@ -6,8 +6,26 @@
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-W98CKF3N');</script>
+})(window,document,'script','dataLayer','GTM-N35983MP');</script>
 <!-- End Google Tag Manager -->
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1995104294452730'); // Replace YOUR_FB_PIXEL_ID with your actual Meta Pixel ID
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1995104294452730&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -479,7 +497,7 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W98CKF3N"
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N35983MP"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
@@ -1346,12 +1364,23 @@ async function doOrder() {
   btn.disabled = true;
   btn.textContent = '⏳ Đang tạo đơn...';
 
+  // Extract Facebook Pixel cookies & click IDs
+  const getCookie = (cname) => {
+    const val = `; ${document.cookie}`;
+    const parts = val.split(`; ${cname}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+  };
+  const fbp = getCookie('_fbp');
+  const fbc = getCookie('_fbc') || new URLSearchParams(window.location.search).get('fbclid');
+
   try {
     const res = await fetch(`${WORKER_URL}/create-order`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, phone: phoneClean, email, product, address, note, coupon_code,
-        is_invoice_requested, invoice_company_name, invoice_tax_code, invoice_company_address, invoice_email }),
+        is_invoice_requested, invoice_company_name, invoice_tax_code, invoice_company_address, invoice_email,
+        fbp, fbc }),
     });
     const data = await res.json();
     if (!data.ok) {
@@ -1382,9 +1411,11 @@ async function doOrder() {
 let pollInterval = null;
 let countdownInterval = null;
 let currentOrderId = null;
+let currentOrderAmount = 0; // Stored for Facebook Pixel Purchase tracking
 
 function showQRModal(orderId, amount, qrUrl) {
   currentOrderId = orderId;
+  currentOrderAmount = Number(amount);
   document.getElementById('qrAmount').textContent = Number(amount).toLocaleString('vi-VN') + 'đ';
   document.getElementById('qrContent').textContent = orderId;
   document.getElementById('qrImg').src = qrUrl;
@@ -1393,6 +1424,22 @@ function showQRModal(orderId, amount, qrUrl) {
   document.getElementById('qrTimeout').classList.remove('show');
   document.getElementById('qrStatus').textContent = '🔄 Đang chờ thanh toán...';
   document.getElementById('qrOverlay').classList.remove('hidden');
+
+  // Trigger Facebook Pixel InitiateCheckout event
+  if (typeof fbq === 'function') {
+    const product = document.getElementById('f-product').value;
+    fbq('track', 'InitiateCheckout', {
+      content_type: 'product',
+      content_ids: [product],
+      contents: [
+        { id: product, quantity: 1, item_price: Number(amount) }
+      ],
+      currency: 'VND',
+      num_items: 1,
+      value: Number(amount)
+    }, { eventID: orderId });
+  }
+
   startCountdown(5 * 60);
   startPolling(orderId);
 }
@@ -1427,6 +1474,21 @@ function stopAll() { clearInterval(pollInterval); clearInterval(countdownInterva
 function showSuccess() {
   document.getElementById('qrMain').style.display = 'none';
   document.getElementById('qrSuccess').classList.add('show');
+
+  // Trigger Facebook Pixel Purchase event
+  if (typeof fbq === 'function' && currentOrderId) {
+    const product = document.getElementById('f-product').value;
+    fbq('track', 'Purchase', {
+      content_type: 'product',
+      content_ids: [product],
+      contents: [
+        { id: product, quantity: 1, item_price: currentOrderAmount }
+      ],
+      currency: 'VND',
+      num_items: 1,
+      value: currentOrderAmount
+    }, { eventID: currentOrderId });
+  }
 }
 
 function showTimeout() {
