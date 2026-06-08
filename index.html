@@ -1041,7 +1041,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="success-ico">✅</span>
       <div class="success-title">Thanh toán thành công!</div>
       <div class="success-msg">Đơn hàng của bạn đã được xác nhận.<br>Chúng tôi đã gửi email xác nhận tới địa chỉ bạn đăng ký.<br><br>Vui lòng kiểm tra hộp thư (kể cả mục Spam / Promotions).</div>
-      <button class="success-close" onclick="closeQR()">Đóng</button>
+      <button class="success-close" onclick="doCloseQRAndGoHome()">Đóng</button>
     </div>
 
     <!-- Màn hình timeout -->
@@ -1104,10 +1104,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="confirm-box">
     <span class="confirm-ico">❓</span>
     <div class="confirm-title">Bạn muốn đóng mã QR?</div>
-    <div class="confirm-msg">Nếu bạn đã chuyển khoản, hệ thống vẫn tự động xác nhận và gửi email trong vài phút. Bạn không cần giữ trang này mở.</div>
+    <div class="confirm-msg">Nếu bạn đã chuyển khoản, hệ thống vẫn tự động xác nhận và gửi email trong vài phút. Bạn có thể về trang chủ để xem thêm thông tin sách.</div>
     <div class="confirm-actions">
       <button class="confirm-btn-cancel" onclick="doCloseQR()">Tôi chưa chuyển — Đóng QR</button>
-      <button class="confirm-btn-ok" onclick="closeConfirm()">Tôi đã chuyển khoản rồi — Ở lại chờ</button>
+      <button class="confirm-btn-ok" onclick="doCloseQRAndGoHome()">Tôi đã chuyển khoản rồi — Về trang chủ</button>
     </div>
   </div>
 </div>
@@ -1497,7 +1497,37 @@ function showTimeout() {
 }
 
 // ── Custom close QR confirm ──────────────────────────────
+function goHomeSection() {
+  const home = document.getElementById('home');
+  if (home) {
+    home.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Xóa hash như #order/#pricing để URL quay về trang chính sạch hơn
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+}
+
 function closeQR() {
+  const successShown = document.getElementById('qrSuccess').classList.contains('show');
+  const timeoutShown = document.getElementById('qrTimeout').classList.contains('show');
+
+  // Nếu đơn đã thành công: bấm Đóng thì thoát modal và về trang chủ, không hỏi lại.
+  if (successShown) {
+    doCloseQRAndGoHome();
+    return;
+  }
+
+  // Nếu đã timeout: nút "Tạo đơn mới" chỉ cần đóng modal, không hiện popup xác nhận lần nữa.
+  if (timeoutShown) {
+    doCloseQR();
+    return;
+  }
+
+  // Chỉ hiện popup xác nhận khi QR vẫn đang chờ thanh toán.
   document.getElementById('confirmOverlay').classList.remove('hidden');
 }
 
@@ -1510,6 +1540,12 @@ function doCloseQR() {
   document.getElementById('confirmOverlay').classList.add('hidden');
   document.getElementById('qrOverlay').classList.add('hidden');
   currentOrderId = null;
+  currentOrderAmount = 0;
+}
+
+function doCloseQRAndGoHome() {
+  doCloseQR();
+  setTimeout(goHomeSection, 80);
 }
 
 </script>
