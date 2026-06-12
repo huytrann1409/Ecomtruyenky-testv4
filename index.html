@@ -128,11 +128,13 @@ section{padding:110px 48px}
   box-shadow:0 30px 60px -12px rgba(44,26,14,.28);
   object-fit:cover;
 }
-/* === HERO CAROUSEL — FIX HERO 01 & 10, GIỮ 02–09 KHÔNG CROP CHỮ ===
+/* === HERO CAROUSEL — FINAL FIX THEO ẢNH GỐC 01 & 10 ===
    Chỉ sửa phần hero carousel.
-   Không sửa layout hero, không sửa JS, không sửa section khác.
-   - Hero 01 / 10 dùng class riêng để giảm crop quá tay.
-   - Ảnh 02–09 giữ contain để không mất chữ.
+   Mục tiêu:
+   - Hero 01 và 10 lấp đầy khung.
+   - Không lộ viền trắng.
+   - Không zoom/crop quá tay.
+   - Hero 02–09 giữ contain để không mất chữ.
 */
 .hero-carousel{
   width:min(100%,420px);
@@ -168,20 +170,25 @@ section{padding:110px 48px}
 }
 .hero-cover-slide img{
   object-fit:cover;
+  transform:none!important;
   transform-origin:center center;
+  object-position:center center;
 }
 .hero-front-cover-slide img{
-  transform:scale(1.055);
+  object-fit:cover;
+  transform:none!important;
   object-position:center center;
 }
 .hero-back-cover-slide img{
-  transform:scale(1.035);
+  object-fit:cover;
+  transform:none!important;
   object-position:center center;
 }
 .hero-scan-slide img{
   object-fit:contain;
   background:#fff;
-  transform:none;
+  transform:none!important;
+  object-position:center center;
 }
 .hero-carousel-dots{display:none!important}
 .hero-carousel-arrow{
@@ -205,10 +212,9 @@ section{padding:110px 48px}
   .hero-carousel{width:100%;border-radius:16px;max-width:380px;margin:0 auto}
   .hero-carousel-arrow{width:32px;height:32px;opacity:.72}
   .hero-carousel-arrow svg{width:14px;height:14px}
-  .hero-front-cover-slide img{transform:scale(1.05)}
-  .hero-back-cover-slide img{transform:scale(1.03)}
+  .hero-front-cover-slide img,
+  .hero-back-cover-slide img{transform:none!important}
 }
-
 .book-scene{position:relative;width:340px;height:400px;display:flex;align-items:center;justify-content:center}
 .book3d{width:220px;height:308px;position:relative;animation:bkFloat 5s ease-in-out infinite}
 @keyframes bkFloat{0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(-5deg) translateY(-16px)}}
