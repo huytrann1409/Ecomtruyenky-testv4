@@ -128,52 +128,56 @@ section{padding:110px 48px}
   box-shadow:0 30px 60px -12px rgba(44,26,14,.28);
   object-fit:cover;
 }
-/* === HERO CAROUSEL — FINAL 2:3 RATIO ===
-   Chuẩn mới: lấy tỉ lệ sau khi crop sạch bìa trước làm chuẩn gần 2:3.
-   - Bìa 01/10: cover để cắt phần nền/viền ngoài, chỉ còn sách.
-   - Trang scan 02-09: contain trong cùng khung 2:3; vì file scan gần 2:3 nên không lộ viền đáng kể và không mất chữ.
+/* === HERO CAROUSEL — SAFE HYBRID FROM OLD WORKING FILE ===
+   Giữ cơ chế carousel cũ đang chạy ổn:
+   - Không dùng query string ?v để tránh khác hành vi với file cũ.
+   - Không đổi aspect sang 2:3 ở CSS nữa.
+   - Mỗi slide là một wrapper 3:4; ảnh bên trong tự fit/crop.
+   - Bìa trước/sau được scale bên trong wrapper để cắt phần viền trắng baked-in.
+   - Trang mục lục/chương giữ contain để không mất chữ.
 */
 .hero-carousel{
-  width:min(100%,390px);
-  aspect-ratio:2/3;
-  border-radius:0;
-  overflow:visible;
-  box-shadow:none;
+  width:min(100%,420px);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 30px 60px -12px rgba(44,26,14,.28);
   position:relative;
   user-select:none;
   -webkit-user-select:none;
-  background:transparent;
-  border:none;
-  padding:0;
+  background:#FFF3E6;
 }
 .hero-carousel-track{
   display:flex;
-  width:100%;
-  height:100%;
   transition:transform .5s cubic-bezier(.4,0,.2,1);
   will-change:transform;
-  overflow:hidden;
-  background:transparent;
-  border-radius:0;
-  box-shadow:0 30px 60px -18px rgba(44,26,14,.30);
 }
 .hero-carousel-slide{
   flex:0 0 100%;
   min-width:100%;
   width:100%;
-  max-width:100%;
+  aspect-ratio:3/4;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#FFF3E6;
+}
+.hero-carousel-slide img{
+  width:100%;
   height:100%;
   display:block;
   object-position:center center;
 }
-.hero-cover-slide{
+.hero-cover-slide img{
   object-fit:cover;
-  background:transparent;
+  transform:scale(1.13);
+  transform-origin:center center;
 }
-.hero-scan-slide{
+.hero-scan-slide img{
   object-fit:contain;
   background:#fff;
 }
+.hero-carousel-dots{display:none!important}
 .hero-carousel-arrow{
   position:absolute;
   top:50%;transform:translateY(-50%);
@@ -192,7 +196,7 @@ section{padding:110px 48px}
 .hero-carousel-prev{left:10px}
 .hero-carousel-next{right:10px}
 @media(max-width:900px){
-  .hero-carousel{width:min(100%,360px);border-radius:0;max-width:360px;margin:0 auto}
+  .hero-carousel{width:100%;border-radius:16px;max-width:380px;margin:0 auto}
   .hero-carousel-arrow{width:32px;height:32px;opacity:.72}
   .hero-carousel-arrow svg{width:14px;height:14px}
 }
@@ -819,16 +823,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-right fade-in">
       <div class="hero-carousel">
         <div class="hero-carousel-track" id="heroCarouselTrack">
-          <img src="assets/images/hero-book-01.jpg?v=20260612-ratio2x3" alt="Bìa trước sách Ecom Truyền Kỳ" class="hero-carousel-slide hero-cover-slide" loading="eager" decoding="async" onerror="if(!this.dataset.fallbackTried){this.dataset.fallbackTried='1';this.src='assets/images/hero-book-01.png?v=20260612-ratio2x3';}">
-          <img src="assets/images/hero-book-02.jpg?v=20260612-ratio2x3" alt="Mục lục Ecom Truyền Kỳ — trang 1" class="hero-carousel-slide hero-scan-slide" loading="eager" decoding="async" onerror="if(!this.dataset.fallbackTried){this.dataset.fallbackTried='1';this.src='assets/images/hero-book-02.png?v=20260612-ratio2x3';}">
-          <img src="assets/images/hero-book-03.jpg?v=20260612-ratio2x3" alt="Mục lục Ecom Truyền Kỳ — trang 2" class="hero-carousel-slide hero-scan-slide" loading="eager" decoding="async" onerror="if(!this.dataset.fallbackTried){this.dataset.fallbackTried='1';this.src='assets/images/hero-book-03.png?v=20260612-ratio2x3';}">
-          <img src="assets/images/hero-book-04.jpg?v=20260612-ratio2x3" alt="Mục lục Ecom Truyền Kỳ — trang 3" class="hero-carousel-slide hero-scan-slide" loading="eager" decoding="async" onerror="if(!this.dataset.fallbackTried){this.dataset.fallbackTried='1';this.src='assets/images/hero-book-04.png?v=20260612-ratio2x3';}">
-          <img src="assets/images/hero-book-05.jpg?v=20260612-ratio2x3" alt="Mục lục Ecom Truyền Kỳ — trang 4" class="hero-carousel-slide hero-scan-slide" loading="eager" decoding="async" onerror="if(!this.dataset.fallbackTried){this.dataset.fallbackTried='1';this.src='assets/images/hero-book-05.png?v=20260612-ratio2x3';}">
-          <img src="assets/images/hero-book-06.jpg?v=20260612-ratio2x3" alt="Chương 1 — Ecom thuở hồng hoang" class="hero-carousel-slide hero-scan-slide" loading="eager" decoding="async" onerror="if(!this.dataset.fallbackTried){this.dataset.fallbackTried='1';this.src='assets/images/hero-book-06.png?v=20260612-ratio2x3';}">
-          <img src="assets/images/hero-book-07.jpg?v=20260612-ratio2x3" alt="Chương 2 — Những nền tảng định hình cuộc chơi" class="hero-carousel-slide hero-scan-slide" loading="eager" decoding="async" onerror="if(!this.dataset.fallbackTried){this.dataset.fallbackTried='1';this.src='assets/images/hero-book-07.png?v=20260612-ratio2x3';}">
-          <img src="assets/images/hero-book-08.jpg?v=20260612-ratio2x3" alt="Chương 3 — Thanh lọc để chuẩn chỉ" class="hero-carousel-slide hero-scan-slide" loading="eager" decoding="async" onerror="if(!this.dataset.fallbackTried){this.dataset.fallbackTried='1';this.src='assets/images/hero-book-08.png?v=20260612-ratio2x3';}">
-          <img src="assets/images/hero-book-09.jpg?v=20260612-ratio2x3" alt="Chương 4 — Vươn ra thế giới" class="hero-carousel-slide hero-scan-slide" loading="eager" decoding="async" onerror="if(!this.dataset.fallbackTried){this.dataset.fallbackTried='1';this.src='assets/images/hero-book-09.png?v=20260612-ratio2x3';}">
-          <img src="assets/images/hero-book-10.jpg?v=20260612-ratio2x3" alt="Bìa sau sách Ecom Truyền Kỳ" class="hero-carousel-slide hero-cover-slide" loading="eager" decoding="async" onerror="if(!this.dataset.fallbackTried){this.dataset.fallbackTried='1';this.src='assets/images/hero-book-10.png?v=20260612-ratio2x3';}">
+          <div class="hero-carousel-slide hero-cover-slide">
+            <img src="assets/images/hero-book-01.jpg" alt="Bìa trước sách Ecom Truyền Kỳ" loading="eager" decoding="async">
+          </div>
+          <div class="hero-carousel-slide hero-scan-slide">
+            <img src="assets/images/hero-book-02.jpg" alt="Mục lục Ecom Truyền Kỳ — trang 1" loading="eager" decoding="async">
+          </div>
+          <div class="hero-carousel-slide hero-scan-slide">
+            <img src="assets/images/hero-book-03.jpg" alt="Mục lục Ecom Truyền Kỳ — trang 2" loading="eager" decoding="async">
+          </div>
+          <div class="hero-carousel-slide hero-scan-slide">
+            <img src="assets/images/hero-book-04.jpg" alt="Mục lục Ecom Truyền Kỳ — trang 3" loading="eager" decoding="async">
+          </div>
+          <div class="hero-carousel-slide hero-scan-slide">
+            <img src="assets/images/hero-book-05.jpg" alt="Mục lục Ecom Truyền Kỳ — trang 4" loading="eager" decoding="async">
+          </div>
+          <div class="hero-carousel-slide hero-scan-slide">
+            <img src="assets/images/hero-book-06.jpg" alt="Chương 1 — Ecom thuở hồng hoang" loading="eager" decoding="async">
+          </div>
+          <div class="hero-carousel-slide hero-scan-slide">
+            <img src="assets/images/hero-book-07.jpg" alt="Chương 2 — Những nền tảng định hình cuộc chơi" loading="eager" decoding="async">
+          </div>
+          <div class="hero-carousel-slide hero-scan-slide">
+            <img src="assets/images/hero-book-08.jpg" alt="Chương 3 — Thanh lọc để chuẩn chỉ" loading="eager" decoding="async">
+          </div>
+          <div class="hero-carousel-slide hero-scan-slide">
+            <img src="assets/images/hero-book-09.jpg" alt="Chương 4 — Vươn ra thế giới" loading="eager" decoding="async">
+          </div>
+          <div class="hero-carousel-slide hero-cover-slide">
+            <img src="assets/images/hero-book-10.jpg" alt="Bìa sau sách Ecom Truyền Kỳ" loading="eager" decoding="async">
+          </div>
         </div>
         <button class="hero-carousel-arrow hero-carousel-prev" id="heroCarouselPrev" aria-label="Ảnh trước">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -836,6 +860,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="hero-carousel-arrow hero-carousel-next" id="heroCarouselNext" aria-label="Ảnh tiếp theo">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
+        <div class="hero-carousel-dots" id="heroCarouselDots" aria-hidden="true"></div>
       </div>
     </div>
   </div>
