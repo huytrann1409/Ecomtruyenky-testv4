@@ -121,16 +121,50 @@ section{padding:110px 48px}
 
 /* BOOK 3D */
 .hero-right{position:relative;display:flex;justify-content:center;align-items:center;min-height:420px}
-/* === HERO CAROUSEL === */
 .hero-book-photo{
+  width:min(100%,560px);
   border-radius:20px;
   display:block;
   box-shadow:0 30px 60px -12px rgba(44,26,14,.28);
   object-fit:cover;
 }
-.hero-carousel{width:min(100%,420px);border-radius:20px;overflow:hidden;box-shadow:0 30px 60px -12px rgba(44,26,14,.28);position:relative;user-select:none;-webkit-user-select:none;background:#FFF8F0}
-.hero-carousel-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform}
-.hero-carousel-slide{min-width:100%;width:100%;display:block;object-fit:cover;aspect-ratio:3/4;background:#FFF8F0}
+/* === HERO CAROUSEL === */
+.hero-carousel{
+  width:min(100%,420px);
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 28px 58px -16px rgba(44,26,14,.24);
+  position:relative;
+  user-select:none;
+  -webkit-user-select:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,248,240,.92));
+  border:1.5px solid rgba(232,82,10,.13);
+  padding:12px;
+}
+.hero-carousel-track{
+  display:flex;
+  transition:transform .5s cubic-bezier(.4,0,.2,1);
+  will-change:transform;
+  border-radius:16px;
+  overflow:hidden;
+  background:#FFF8F0;
+}
+.hero-carousel-slide{
+  min-width:100%;
+  width:100%;
+  display:block;
+  aspect-ratio:3/4;
+  background:#FFF8F0;
+}
+.hero-cover-slide{
+  object-fit:contain;
+  padding:18px;
+}
+.hero-scan-slide{
+  object-fit:contain;
+  padding:8px;
+  background:#fff;
+}
 .hero-carousel-arrow{
   position:absolute;
   top:50%;transform:translateY(-50%);
@@ -142,7 +176,8 @@ section{padding:110px 48px}
   color:var(--brown);
   box-shadow:0 2px 10px rgba(44,26,14,.18);
   transition:opacity .2s,transform .2s,background .2s;
-  z-index:3;padding:0;
+  z-index:3;
+  padding:0;
 }
 .hero-carousel-arrow:hover{background:#fff;transform:translateY(-50%) scale(1.08)}
 .hero-carousel-prev{left:10px}
@@ -185,11 +220,14 @@ section{padding:110px 48px}
 .fc1{top:0;right:0}
 .fc2{bottom:0;left:0}
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;text-align:center;gap:40px;padding-top:90px}
+  #home{padding-top:76px !important;padding-bottom:36px !important;padding-left:20px !important;padding-right:20px !important}
+  .hero{grid-template-columns:1fr;text-align:center;gap:28px;padding-top:0;padding-bottom:0;min-height:auto}
   .hero-left{display:flex;flex-direction:column;align-items:center}
   .hero-cred ul{text-align:left;max-width:480px}
   .hero-sub,.hero-body{text-align:center}
   .hero-btns,.hero-stats{justify-content:center}
+  .hero-right{min-height:auto}
+  .hero-book-photo{width:min(100%,560px);border-radius:16px}
   .book-scene{margin:0 auto}
   .fc1{top:-10px;right:-10px}
   .fc2{bottom:-10px;left:-10px}
@@ -393,7 +431,7 @@ section{padding:110px 48px}
   border-radius:10px;
   border:1.5px solid var(--border);
   background:#fff;
-  font-size:22px;font-weight:700;
+  font-size:22px;font-weight:800;
   cursor:pointer;
   color:var(--brown);
   display:flex;align-items:center;justify-content:center;
@@ -407,7 +445,7 @@ section{padding:110px 48px}
   text-align:center;
   border:1.5px solid var(--border);
   border-radius:10px;
-  font-size:16px;font-weight:700;
+  font-size:16px;font-weight:800;
   color:var(--brown);
   background:#fff;
   -moz-appearance:textfield;
@@ -415,8 +453,8 @@ section{padding:110px 48px}
 .qty-input::-webkit-outer-spin-button,
 .qty-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 .qty-input:focus{outline:none;border-color:var(--or)}
-.qty-hint{font-size:12px;color:var(--muted);line-height:1.4;margin-left:8px;flex:1;min-width:200px}
-.qty-hint a{color:var(--or);font-weight:600;text-decoration:none}
+.qty-hint{font-size:12px;color:var(--muted);line-height:1.45;margin-left:8px;flex:1;min-width:220px}
+.qty-hint a{color:var(--or);font-weight:700;text-decoration:none}
 .qty-hint a:hover{text-decoration:underline}
 
 /* COUPON APPLY */
@@ -546,16 +584,7 @@ button.btn-pri{
   justify-content:center;
 }
 .book-event-wrap::before{
-  content:'';
-  position:absolute;
-  width:82%;
-  height:86%;
-  right:0;
-  top:7%;
-  border-radius:42% 58% 52% 48%;
-  background:linear-gradient(145deg,rgba(232,82,10,.10),rgba(245,166,35,.13));
-  filter:blur(.2px);
-  z-index:0;
+  content:none;
 }
 .book-event-card{
   position:relative;
@@ -585,6 +614,140 @@ button.btn-pri{
   .book-event-img{border-radius:14px;aspect-ratio:4/3;}
 }
 
+/* === AUTHOR SECTION === */
+@media(max-width:860px){
+  .author-grid{grid-template-columns:1fr !important;gap:36px !important}
+}
+@media(max-width:600px){
+  #author{padding:72px 24px !important}
+}
+
+/* === STATS SECTION — cream override === */
+.stats-sec{background:#FFF3E6}
+.stats-label{color:var(--or)}
+.stats-title{color:var(--brown)}
+.stats-sub{color:var(--brown2)}
+.stat-card{background:#fff;border:1px solid var(--border)}
+.stat-num{color:var(--or)}
+.stat-title{color:var(--brown)}
+.stat-desc{color:var(--muted)}
+.stats-footnote{color:var(--muted)}
+/* === EVENT PROOF SECTION === */
+.event-proof-sec{background:#FFF8F0;padding:88px 48px}
+.event-proof-head{max-width:760px;margin:0 auto 36px;text-align:center}
+.event-proof-title{font-size:clamp(28px,4vw,48px);line-height:1.12;letter-spacing:-1px;font-weight:900;color:var(--brown);margin-bottom:14px}
+.event-proof-head p{font-size:15px;color:var(--muted);line-height:1.8}
+.event-proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.event-proof-card{margin:0;border-radius:22px;overflow:hidden;background:#fff;border:1px solid var(--border);box-shadow:0 16px 36px rgba(44,26,14,.08)}
+.event-proof-card img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center center;display:block}
+.event-proof-card figcaption{padding:12px 14px 14px;font-size:12.5px;color:var(--muted);line-height:1.5}
+@media(max-width:700px){
+  .event-proof-sec{padding:72px 24px}
+  .event-proof-grid{display:flex;overflow-x:auto;gap:14px;scroll-snap-type:x mandatory;padding:2px 2px 10px;margin-left:-4px;margin-right:-4px}
+  .event-proof-card{min-width:82vw;scroll-snap-align:center}
+  .event-proof-card img{aspect-ratio:4/3}
+}
+/* === REAL BOOK PROOF (Pricing) === */
+.real-book-proof{max-width:900px;margin:34px auto 0;display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;align-items:center;padding:18px;border-radius:24px;background:#FFF8F0;border:1px solid var(--border);box-shadow:0 14px 36px rgba(44,26,14,.06)}
+.real-book-proof-img img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px;display:block}
+.real-book-proof-copy span{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--or);display:block;margin-bottom:8px}
+.real-book-proof-copy h3{font-size:clamp(20px,2.6vw,30px);line-height:1.2;color:var(--brown);font-weight:900;margin-bottom:10px}
+.real-book-proof-copy p{font-size:14px;line-height:1.8;color:var(--brown2)}
+@media(max-width:700px){.real-book-proof{grid-template-columns:1fr}}
+/* === AUTHOR VIDEO FEATURE === */
+.author-video-feature{margin-top:34px;display:grid;grid-template-columns:minmax(220px,1fr) minmax(260px,340px) minmax(220px,1fr);gap:24px;align-items:center}
+.author-video-main{border-radius:18px;overflow:hidden;border:1.5px solid var(--border);box-shadow:0 18px 44px rgba(44,26,14,.10);aspect-ratio:9/16;background:#1A0800}
+.author-video-main iframe{width:100%;height:100%;display:block;border:none}
+.author-video-side{min-height:260px;padding:22px;border-radius:20px;background:#FFF8F0;border:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
+.video-kicker{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--or);margin-bottom:10px;display:block}
+.author-video-side h3{font-size:22px;line-height:1.25;color:var(--brown);font-weight:900;margin-bottom:12px}
+.author-video-side p{font-size:14px;line-height:1.8;color:var(--brown2)}
+.author-video-side ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin:0 0 18px}
+.author-video-side li{font-size:13.5px;line-height:1.65;color:var(--brown2);padding-left:18px;position:relative}
+.author-video-side li::before{content:'→';position:absolute;left:0;color:var(--or);font-weight:800}
+.author-video-side a{font-size:13px;font-weight:800;color:var(--or);text-decoration:none}
+@media(max-width:900px){
+  .author-video-feature{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
+  .author-video-main{order:1}
+  .author-video-left{order:2}
+  .author-video-right{order:3}
+  .author-video-side{min-height:auto}
+}
+
+/* === MODAL preview page wraps === */
+#previewScroll .preview-page-wrap{
+  display:block;
+  width:100%;
+  max-width:680px;
+  margin:0 auto 12px;
+}
+#previewScroll .preview-page-wrap img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* === INLINE PREVIEW READER === */
+.preview-reader-wrap{max-width:760px;margin:40px auto 0}
+.preview-reader-container{position:relative}
+.preview-reader-frame{
+  height:min(660px,70vh);
+  overflow-y:auto;
+  border-radius:20px;
+  background:#fff;
+  border:1.5px solid rgba(232,82,10,.14);
+  box-shadow:0 18px 44px rgba(44,26,14,.08);
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  touch-action:pan-y;
+  scroll-behavior:smooth;
+}
+.preview-reader-frame .preview-page-wrap{
+  margin:0 auto 10px;
+  max-width:680px;
+}
+.preview-reader-frame .preview-end-cta{
+  margin:10px auto 0;
+  max-width:680px;
+}
+.preview-reader-fade{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:90px;
+  background:linear-gradient(to bottom,transparent,rgba(255,255,255,.97));
+  pointer-events:none;
+  border-radius:0 0 20px 20px;
+  transition:opacity .5s;
+}
+.preview-scroll-hint{
+  position:absolute;
+  bottom:14px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(255,255,255,.92);
+  border:1px solid var(--border);
+  padding:5px 14px;
+  border-radius:20px;
+  font-size:12px;
+  color:var(--muted);
+  pointer-events:none;
+  transition:opacity .5s;
+  white-space:nowrap;
+  z-index:2;
+}
+.preview-reader-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:12px;
+  flex-wrap:wrap;
+  gap:8px;
+}
+@media(max-width:600px){
+  .preview-reader-frame{height:min(480px,68vh);border-radius:16px}
+  .preview-reader-fade{border-radius:0 0 16px 16px}
+}
+
 </style>
 </head>
 <body>
@@ -602,10 +765,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav id="navbar">
   <div class="nav-logo">ECOM <span>TRUYỀN KỲ</span></div>
   <ul class="nav-menu">
-    <li><a href="#toc">Nội dung sách</a></li>
     <li><a href="#audience">Phù hợp với ai</a></li>
+    <li><a href="#toc">Nội dung sách</a></li>
+    <li><a href="#author">Tác giả</a></li>
     <li><a href="#preview">Đọc thử</a></li>
-    <li><a href="#faq">FAQ</a></li>
     <li><a href="#pricing">Đặt sách</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:12px">
@@ -616,10 +779,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#toc" onclick="closeMenu()">Nội dung sách</a>
   <a href="#audience" onclick="closeMenu()">Phù hợp với ai</a>
+  <a href="#toc" onclick="closeMenu()">Nội dung sách</a>
+  <a href="#author" onclick="closeMenu()">Tác giả</a>
   <a href="#preview" onclick="closeMenu()">Đọc thử</a>
-  <a href="#faq" onclick="closeMenu()">FAQ</a>
   <a href="#pricing" onclick="closeMenu()" style="color:var(--or);font-weight:800">ĐẶT SÁCH →</a>
 </div>
 
@@ -636,27 +799,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section style="padding-top:100px;padding-bottom:80px;padding-left:48px;padding-right:48px" id="home">
   <div class="container hero">
     <div class="hero-left fade-in">
-      <h1 class="big-title">Doanh thu đẹp chưa chắc còn tiền thật.</h1>
-      <p class="hero-sub">Ecom Truyền Kỳ không đưa thêm một mẹo bán hàng. Cuốn sách giúp người đang làm Ecom — hoặc đang chuẩn bị bước vào cuộc chơi này — nhìn lại những lớp đang chi phối thị trường hôm nay: sàn, ads, biên lợi nhuận, vận hành và AI.</p>
-      <p class="hero-body">Để biết mình nên ưu tiên điều gì trước khi xuống tiền, mở rộng hoặc đi tiếp.</p>
+      <h1 class="big-title">Làm Ecom hôm nay không khó vì thiếu thông tin.</h1>
+      <p class="hero-sub">Cái khó là biết điều gì thật sự quan trọng cho quyết định tiếp theo.</p>
+      <p class="hero-body">Khi nền tảng, quảng cáo, dòng tiền, vận hành, thương hiệu và AI đều thay đổi, người làm Ecom rất dễ loay hoay giữa quá nhiều lựa chọn. <strong style="color:var(--brown);font-weight:800">Ecom Truyền Kỳ giúp bạn nhìn toàn cảnh cuộc chơi</strong> — để biết mình đang ở đâu, nên ưu tiên điều gì, và chuẩn bị thế nào cho giai đoạn tới.</p>
       <div class="hero-btns">
-        <a href="#preview" class="btn-pri">Đọc thử 30 trang →</a>
-        <a href="#pricing" class="btn-sec">Đặt sách</a>
+        <a href="#pricing" class="btn-pri">Đặt sách →</a>
+        <a href="#preview" class="btn-sec">Đọc thử 30 trang</a>
       </div>
     </div>
     <div class="hero-right fade-in">
       <div class="hero-carousel">
         <div class="hero-carousel-track" id="heroCarouselTrack">
-          <img src="assets/images/hero-book-01.jpg" alt="Bìa trước Ecom Truyền Kỳ" class="hero-carousel-slide" loading="eager">
-          <img src="assets/images/hero-book-02.jpg" alt="Mục lục trang 1" class="hero-carousel-slide" loading="lazy">
-          <img src="assets/images/hero-book-03.jpg" alt="Mục lục trang 2" class="hero-carousel-slide" loading="lazy">
-          <img src="assets/images/hero-book-04.jpg" alt="Mục lục trang 3" class="hero-carousel-slide" loading="lazy">
-          <img src="assets/images/hero-book-05.jpg" alt="Mục lục trang 4" class="hero-carousel-slide" loading="lazy">
-          <img src="assets/images/hero-book-06.jpg" alt="Chương 1 — 2000-2010: Ecom thuở hồng hoang" class="hero-carousel-slide" loading="lazy">
-          <img src="assets/images/hero-book-07.jpg" alt="Chương 2 — 2012-2015: Những nền tảng định hình cuộc chơi" class="hero-carousel-slide" loading="lazy">
-          <img src="assets/images/hero-book-08.jpg" alt="Chương 3 — 2023-2025: Thanh lọc để chuẩn chỉ" class="hero-carousel-slide" loading="lazy">
-          <img src="assets/images/hero-book-09.jpg" alt="Chương 4 — Vươn ra thế giới" class="hero-carousel-slide" loading="lazy">
-          <img src="assets/images/hero-book-10.jpg" alt="Bìa sau Ecom Truyền Kỳ" class="hero-carousel-slide" loading="lazy">
+          <img src="assets/images/hero-book-01.jpg" alt="Bìa trước sách Ecom Truyền Kỳ" class="hero-carousel-slide hero-cover-slide" loading="eager">
+          <img src="assets/images/hero-book-02.jpg" alt="Mục lục Ecom Truyền Kỳ — trang 1" class="hero-carousel-slide hero-scan-slide" loading="lazy">
+          <img src="assets/images/hero-book-03.jpg" alt="Mục lục Ecom Truyền Kỳ — trang 2" class="hero-carousel-slide hero-scan-slide" loading="lazy">
+          <img src="assets/images/hero-book-04.jpg" alt="Chương 1 — Ecom thuở hồng hoang" class="hero-carousel-slide hero-scan-slide" loading="lazy">
+          <img src="assets/images/hero-book-05.jpg" alt="Chương 2 — Những nền tảng định hình cuộc chơi" class="hero-carousel-slide hero-scan-slide" loading="lazy">
+          <img src="assets/images/hero-book-06.jpg" alt="Chương 3 — Thanh lọc để chuẩn chỉ" class="hero-carousel-slide hero-scan-slide" loading="lazy">
+          <img src="assets/images/hero-book-07.jpg" alt="Chương 4 — Vươn ra thế giới" class="hero-carousel-slide hero-scan-slide" loading="lazy">
+          <img src="assets/images/hero-book-08.jpg" alt="Bìa sau sách Ecom Truyền Kỳ" class="hero-carousel-slide hero-cover-slide" loading="lazy">
         </div>
         <button class="hero-carousel-arrow hero-carousel-prev" id="heroCarouselPrev" aria-label="Ảnh trước">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -682,22 +843,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="audience-card">
         <div class="audience-kicker">Nhóm 1</div>
         <h3>Chủ shop / seller đang bán</h3>
-        <p>Bạn vẫn có đơn, vẫn làm đều, nhưng càng ngày càng thấy bấp bênh: nền tảng đổi, chi phí tăng, đơn tụt, và không chắc mình đang đi đúng hướng.</p>
+        <p>Hôm qua đơn còn đều. Hôm nay phí tăng, ads đắt hơn, nền tảng đổi luật — và bạn không chắc mình đang sai ở sản phẩm, kênh bán hay vận hành.</p>
       </div>
       <div class="audience-card">
         <div class="audience-kicker">Nhóm 2</div>
         <h3>Người chạy ads / performance marketer</h3>
-        <p>Bạn hiểu quảng cáo, nhưng bắt đầu thấy ads chỉ là một mảnh. Muốn đi xa hơn, bạn cần hiểu sản phẩm, nền tảng, dòng tiền, vận hành và thương hiệu đang nối với nhau thế nào.</p>
+        <p>Bạn biết chạy quảng cáo, đọc số và tối ưu từng chỉ số. Nhưng càng làm, bạn càng thấy ads chỉ là một mảnh — vì sản phẩm, offer, nền tảng và dòng tiền đều ảnh hưởng đến kết quả.</p>
       </div>
       <div class="audience-card">
         <div class="audience-kicker">Nhóm 3</div>
         <h3>Người mới muốn bước vào Ecom</h3>
-        <p>Bạn nghe quá nhiều lời khuyên trái chiều và không biết nên bắt đầu từ đâu. Điều cần trước tiên không phải là lao vào chạy theo trend, mà là có một bức tranh tổng thể để tránh đốt tiền oan.</p>
+        <p>Bạn muốn bước vào Ecom nhưng nghe quá nhiều hướng: bán sàn, TikTok Shop, ads, affiliate, AI, global. Trước khi bỏ tiền thử sai, bạn cần một bản đồ để biết mình nên bắt đầu từ đâu.</p>
       </div>
       <div class="audience-card">
         <div class="audience-kicker">Nhóm 4</div>
-        <h3>Founder / chủ doanh nghiệp / người điều hành muốn nhìn lại mô hình Ecom</h3>
-        <p>Bạn không chỉ quan tâm hôm nay có bao nhiêu đơn. Bạn muốn nhìn lại mô hình của mình có còn khỏe không: phụ thuộc sàn đến đâu, biên lợi nhuận còn bao nhiêu, vận hành có chịu được scale không. Và hướng đi tiếp nên là tối ưu nội lực, mở kênh mới hay bước ra thị trường lớn hơn.</p>
+        <h3>Người từng làm tốt rồi chững lại</h3>
+        <p>Bạn từng có giai đoạn làm tốt. Nhưng càng mở rộng càng nặng: thêm người, thêm việc, thêm chi phí — trong khi kết quả không tăng tương xứng.</p>
       </div>
     </div>
     <p class="audience-note fade-in"><strong>Nếu bạn thuộc một trong bốn nhóm trên,</strong> cuốn sách này nên được đọc như một bản đồ tư duy: không hứa thay bạn ra quyết định, nhưng giúp bạn nhìn rõ hơn trước khi quyết định.</p>
@@ -705,15 +866,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- BRIDGE 2 -->
-<div class="bridge" id="bridge2">
+<div class="bridge" id="bridge2" style="background:#2C1A0E">
   <div class="bridge-inner fade-in">
-    <p>Biết thị trường khó hơn là chưa đủ.</p>
-    <p>Cái cần là nhìn rõ mình đang mắc ở đâu: sản phẩm, kênh bán, chi phí, vận hành hay cách ra quyết định.</p>
-    <p><strong>Ecom Truyền Kỳ giúp bạn nhìn lại cuộc chơi bằng một góc nhìn rộng hơn: người thật, việc thật, tiền thật.</strong></p>
+    <p style="color:rgba(255,248,240,.7)">Dù bạn đang bán hàng, chạy ads, mới bước vào Ecom hay từng chững lại —</p>
+    <p style="color:#FFF8F0"><strong>cuối cùng vẫn có một câu hỏi phải nhìn thẳng: Sau tất cả chi phí, còn lại bao nhiêu tiền thật?</strong></p>
   </div>
 </div>
 
-</div>
+<!-- STATS -->
+<section class="stats-sec" id="stats">
+  <div class="container">
+    <div class="fade-in">
+      <span class="stats-label">Chi Phí Thực Tế</span>
+      <h2 class="stats-title">Doanh thu đẹp chưa chắc còn tiền thật.</h2>
+      <p class="stats-sub">Với mô hình chi phí minh họa bên dưới, 100 triệu doanh thu có thể chỉ còn dưới 10 triệu lãi thật.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card fade-in">
+        <span class="stat-num">~25%</span>
+        <div class="stat-title">Phí nền tảng</div>
+        <div class="stat-desc">Các loại phí liên quan đến sàn, chương trình, hiển thị và bán hàng trên nền tảng.</div>
+      </div>
+      <div class="stat-card fade-in">
+        <span class="stat-num">20–25%</span>
+        <div class="stat-title">Marketing</div>
+        <div class="stat-desc">Ads, nội dung, affiliate, KOL/KOC, seeding — những khoản không hiện ra nếu chỉ nhìn doanh thu.</div>
+      </div>
+      <div class="stat-card fade-in">
+        <span class="stat-num">~10%</span>
+        <div class="stat-title">Vận hành</div>
+        <div class="stat-desc">Kho, nhân sự, xử lý đơn, chăm sóc khách, hoàn hàng — chi phí khiến "có đơn" chưa chắc "có lời".</div>
+      </div>
+      <div class="stat-card fade-in">
+        <span class="stat-num">~34%</span>
+        <div class="stat-title">Giá vốn</div>
+        <div class="stat-desc">Chi phí sản phẩm trước khi tính các lớp phí còn lại.</div>
+      </div>
+    </div>
+    <div class="stats-footnote fade-in">Theo mô hình chi phí được phân tích trong Chương 3. Sách cũng nhắc đến phí thanh toán 5% đã gồm VAT từ 7/2025 trong bối cảnh chính sách phí mới.</div>
+  </div>
+</section>
 
 <!-- BOOK / TOC -->
 <section class="book-sec" id="toc">
@@ -725,7 +917,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="sec-sub">Ecom Truyền Kỳ giúp người làm Ecom nhìn toàn cảnh cuộc chơi.<br><br>Không phải giáo trình. Không phải khóa học. Đây là cách nhìn có hệ thống về một cuộc chơi thay đổi liên tục — nơi kỹ thuật có thể lỗi thời rất nhanh, nhưng pattern thì thường lặp lại.</p>
       </div>
       <div class="book-event-wrap" aria-label="Ảnh sách Ecom Truyền Kỳ">
-        <img src="assets/images/book-cover-detail.jpg" alt="Chi tiết bìa sách Ecom Truyền Kỳ" class="hero-book-photo" loading="lazy" style="width:min(100%,520px)">
+        <img src="assets/images/book-cover-detail.jpg" alt="Chi tiết bìa sách Ecom Truyền Kỳ" class="hero-book-photo" loading="lazy" style="width:min(100%,520px);object-fit:contain;background:#FFF8F0">
       </div>
     </div>
 
@@ -882,97 +1074,91 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
+
+    <div class="fade-in" style="margin-top:40px;padding:24px 28px;border-radius:16px;background:rgba(232,82,10,.06);border:1px solid rgba(232,82,10,.15);max-width:860px;margin-left:auto;margin-right:auto">
+      <p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--or);margin-bottom:10px">Điểm đáng đọc nhất cho người đang làm Ecom hôm nay</p>
+      <p style="font-size:14px;color:var(--brown2);line-height:1.8">Chương 3 &amp; 4 đi vào những bài toán thực tế nhất: bán sàn còn có lãi không — vận hành, tài chính, gọi vốn, M&amp;A — AI và câu hỏi hiểu mình — Ecom Global và những cánh cửa đi ra thế giới.</p>
+    </div>
+
   </div>
 </section>
 
-<!-- BRIDGE 3 -->
-<div class="bridge" id="bridge3" style="background:linear-gradient(160deg,#FFF3E6,#FFE4C8)">
-  <div class="bridge-inner fade-in">
-    <p>Nếu bạn đang làm Ecom hôm nay, phần đáng đọc nhất không chỉ là chuyện ngành đã đi qua gì.</p>
-    <p><strong>Mà là những bài học còn dùng được cho quyết định tiếp theo.</strong></p>
-  </div>
-</div>
 
-<!-- SPOTLIGHT CHƯƠNG 3–4 -->
-<section class="spotlight-sec" id="spotlight">
+<!-- AUTHOR -->
+<section id="author" style="background:#fff;padding:100px 48px">
   <div class="container">
-    <div class="fade-in">
-      <span class="sec-label">Chương 3 &amp; 4</span>
-      <h2 class="big-title">Sau doanh thu là dòng tiền,<br>vận hành và<br>bước tiếp theo.</h2>
-    </div>
-    <div class="spotlight-grid fade-in">
-      <div class="spotlight-card">
-        <div class="spotlight-ch">Chương 3 — Kỷ Nguyên Vươn Mình</div>
-        <h3 class="spotlight-title">Doanh thu không phải là tất cả.</h3>
-        <p class="spotlight-body">Có đơn, có doanh thu chưa chắc đã còn tiền. Chương này đi vào những bài toán thực tế hơn của người làm Ecom: chi phí, dòng tiền, vận hành, đội ngũ, gọi vốn, M&amp;A và AI.</p>
+    <div style="display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:64px;align-items:start;max-width:1020px;margin:0 auto" class="fade-in author-grid">
+
+      <!-- Event photo -->
+      <div style="display:flex;justify-content:center">
+        <img src="assets/images/author-event-talk.png"
+             alt="Lê Anh Tuấn chia sẻ tại sự kiện ra mắt sách Ecom Truyền Kỳ"
+             style="width:min(100%,380px);border-radius:20px;display:block;box-shadow:0 24px 56px rgba(44,26,14,.14);object-fit:cover"
+             loading="lazy">
       </div>
-      <div class="spotlight-card">
-        <div class="spotlight-ch">Chương 4 — Vươn Ra Thế Giới</div>
-        <h3 class="spotlight-title">Khi thị trường trong nước không còn là giới hạn duy nhất.</h3>
-        <p class="spotlight-body">Ecom Global, POD, dropship, cross-border và thị trường Đông Nam Á — không phải để chạy theo trend, mà để thấy những cánh cửa tiếp theo của người làm Ecom Việt.</p>
+
+      <!-- Bio only in right column, video feature below full-width -->
+      <div>
+        <span class="sec-label">Về Tác Giả</span>
+        <h2 style="font-size:clamp(28px,3.5vw,42px);font-weight:900;color:var(--brown);letter-spacing:-1px;line-height:1.1;margin-bottom:16px">Lê Anh Tuấn</h2>
+        <p style="font-size:clamp(15px,1.7vw,18px);color:var(--brown2);line-height:1.85">Lê Anh Tuấn là người gắn bó lâu năm với online marketing, startup và Ecom Việt Nam. Ecom Truyền Kỳ là cách anh chọn để kể lại 25 năm đó — để người đi sau không phải trả học phí bằng tiền thật cho những bài học đã có sẵn.</p>
+      </div>
+
+    </div>
+
+    <!-- Author video feature — full width, outside 2-col grid -->
+    <div class="author-video-feature fade-in">
+      <div class="author-video-side author-video-left">
+        <span class="video-kicker">Video tác giả</span>
+        <h3>Câu chuyện phía sau Ecom Truyền Kỳ</h3>
+        <p>Một cuốn sách không nên chỉ nói "nên làm gì". Nó nên giúp người làm Ecom hiểu vì sao cuộc chơi đã thay đổi — và mình đang đứng ở đâu trong đó.</p>
+      </div>
+      <div class="author-video-main">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/k4ie18OWzFg?rel=0&modestbranding=1&iv_load_policy=3"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+          title="Câu chuyện phía sau Ecom Truyền Kỳ — Lê Anh Tuấn"
+        ></iframe>
+      </div>
+      <div class="author-video-side author-video-right">
+        <span class="video-kicker">Trong video này</span>
+        <ul>
+          <li>Vì sao tác giả viết Ecom Truyền Kỳ</li>
+          <li>Vì sao sách không đi theo kiểu công thức kiếm tiền nhanh</li>
+          <li>Người làm Ecom nên đọc cuốn này với tâm thế nào</li>
+        </ul>
+        <a href="#preview">Đọc thử 30 trang →</a>
       </div>
     </div>
-    <div class="spotlight-btns fade-in">
-      <a href="#preview" class="btn-sec">Đọc thử 30 trang</a>
-      <a href="#pricing" class="btn-pri">Đặt sách →</a>
+
     </div>
   </div>
 </section>
 
-<!-- PREVIEW SECTION -->
-<section class="preview-sec" id="preview">
+<!-- EVENT PROOF -->
+<section class="event-proof-sec" id="event-proof">
   <div class="container">
-    <div class="fade-in" style="text-align:center">
-      <span class="sec-label" style="display:block;text-align:center">Đọc Thử</span>
-      <h2 class="big-title" style="font-size:clamp(32px,4.5vw,56px)">Đọc thử 30 trang</h2>
-      <p class="sec-sub" style="margin:0 auto;text-align:center">Bắt đầu từ phần “Bán hàng trên sàn Ecom còn có lãi không?” — đoạn đi thẳng vào câu hỏi quen thuộc của người làm Ecom: bán được rồi, nhưng cuối cùng còn lại bao nhiêu?</p>
+    <div class="event-proof-head fade-in">
+      <span class="sec-label" style="display:block;text-align:center">Khoảnh Khắc Thật</span>
+      <h2 class="event-proof-title">Sách thật. Người thật. Những cuộc trò chuyện thật.</h2>
+      <p>Một vài khoảnh khắc tại buổi ra mắt Ecom Truyền Kỳ — nơi cuốn sách được cầm trên tay, ký tặng và nói tiếp bằng những câu chuyện ngoài trang giấy.</p>
     </div>
-    <div class="preview-cta-wrap fade-in">
-      <a href="doc_thu_30_trang_chuong3.pdf" target="_blank" rel="noopener" class="btn-pri" style="font-size:16px;padding:16px 36px">Mở PDF trong tab mới</a>
+    <div class="event-proof-grid fade-in">
+      <figure class="event-proof-card">
+        <img src="assets/images/event-group-books.jpg" alt="Độc giả cầm sách tại buổi ra mắt Ecom Truyền Kỳ" loading="lazy" decoding="async">
+        <figcaption>Buổi ra mắt sách Ecom Truyền Kỳ.</figcaption>
+      </figure>
+      <figure class="event-proof-card">
+        <img src="assets/images/event-signed-books.jpg" alt="Khoảnh khắc ký tặng sách Ecom Truyền Kỳ" loading="lazy" decoding="async">
+        <figcaption>Ký tặng sách tại sự kiện.</figcaption>
+      </figure>
+      <figure class="event-proof-card">
+        <img src="assets/images/event-reader-book.jpg" alt="Độc giả cầm sách Ecom Truyền Kỳ" loading="lazy" decoding="async">
+        <figcaption>Sách thật trên tay người đọc.</figcaption>
+      </figure>
     </div>
-  </div>
-</section>
-
-<!-- BRIDGE 1 -->
-<div class="bridge" id="bridge1">
-  <div class="bridge-inner fade-in">
-    <p>Không phải vì người bán lười hơn, hay thị trường hết cơ hội.</p>
-    <p>Vấn đề là cuộc chơi đã có quá nhiều mảnh ghép: nền tảng, quảng cáo, dòng tiền, vận hành, thương hiệu và AI.</p>
-    <p><strong>Muốn đi tiếp, chỉ nhìn doanh thu là không đủ.</strong></p>
-  </div>
-</div>
-
-<!-- STATS -->
-<section class="stats-sec" id="stats">
-  <div class="container">
-    <div class="fade-in">
-      <span class="stats-label">Chi Phí Thực Tế</span>
-      <h2 class="stats-title">Doanh thu đẹp chưa chắc còn tiền thật.</h2>
-      <p class="stats-sub">Đây là mô hình minh họa dựa trên các lớp chi phí thường gặp được phân tích trong Chương 3. Tỷ lệ thực tế thay đổi theo ngành hàng, nền tảng, chính sách phí, biên giá vốn và cách vận hành của từng seller.</p>
-    </div>
-    <div class="stats-grid">
-      <div class="stat-card fade-in">
-        <span class="stat-num">~25%</span>
-        <div class="stat-title">Phí nền tảng</div>
-        <div class="stat-desc">Các loại phí liên quan đến sàn, chương trình, hiển thị và bán hàng trên nền tảng.</div>
-      </div>
-      <div class="stat-card fade-in">
-        <span class="stat-num">20–25%</span>
-        <div class="stat-title">Marketing</div>
-        <div class="stat-desc">Ads, nội dung, affiliate, KOL/KOC, seeding — những khoản không hiện ra nếu chỉ nhìn doanh thu.</div>
-      </div>
-      <div class="stat-card fade-in">
-        <span class="stat-num">~10%</span>
-        <div class="stat-title">Vận hành</div>
-        <div class="stat-desc">Kho, nhân sự, xử lý đơn, chăm sóc khách, hoàn hàng — chi phí khiến "có đơn" chưa chắc "có lời".</div>
-      </div>
-      <div class="stat-card fade-in">
-        <span class="stat-num">~34%</span>
-        <div class="stat-title">Giá vốn</div>
-        <div class="stat-desc">Chi phí sản phẩm trước khi tính các lớp phí còn lại.</div>
-      </div>
-    </div>
-    <div class="stats-footnote fade-in">Theo mô hình chi phí được phân tích trong Chương 3. Sách cũng nhắc đến phí thanh toán 5% đã gồm VAT từ 7/2025 trong bối cảnh chính sách phí mới.</div>
   </div>
 </section>
 
@@ -1020,59 +1206,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-<!-- FAQ -->
-<section class="faq-sec" id="faq">
+<!-- PREVIEW SECTION -->
+<section class="preview-sec" id="preview">
   <div class="container">
     <div class="fade-in" style="text-align:center">
-      <span class="sec-label" style="display:block;text-align:center">FAQ</span>
-      <h2 class="big-title" style="font-size:clamp(32px,4vw,52px)">Còn lăn tăn trước khi đặt sách?</h2>
-      <p class="sec-sub" style="margin:0 auto;text-align:center">Một vài câu hỏi thường gặp để bạn tự xem cuốn này có thật sự phù hợp với mình không.</p>
+      <span class="sec-label" style="display:block;text-align:center">Đọc Thử</span>
+      <h2 class="big-title" style="font-size:clamp(32px,4.5vw,56px)">Đọc thử 30 trang</h2>
+      <p class="sec-sub" style="margin:0 auto;text-align:center">Bắt đầu từ phần "Bán hàng trên sàn Ecom còn có lãi không?" — đoạn đi thẳng vào câu hỏi quen thuộc của người làm Ecom: bán được rồi, nhưng cuối cùng còn lại bao nhiêu?</p>
     </div>
-    <div class="faq-wrap fade-in">
-      <details class="faq-item" open>
-        <summary>Sách này khác gì một khóa học Ecom?</summary>
-        <div class="faq-answer">Sách này không đi theo kiểu checklist từng bước, cũng không dạy bạn chạy ads, tối ưu sàn hay làm TikTok Shop theo công thức. Điểm khác là sách cho bạn một góc nhìn rộng hơn về Ecom: thị trường thay đổi thế nào, vì sao nhiều người thắng, vì sao nhiều người gãy, và những pattern nào người đi sau nên nhìn ra.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Tôi mới bước vào Ecom thì có đọc được không?</summary>
-        <div class="faq-answer">Có, nếu bạn muốn hiểu bức tranh tổng thể trước khi bắt đầu. Cuốn này không hứa giúp bạn “kiếm tiền ngay”, nhưng phù hợp nếu bạn đang sợ nghe quá nhiều lời khuyên trái chiều và muốn tránh một số sai lầm quen thuộc của người đi trước.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Tôi đang bán rồi, sách có thực tế với tôi không?</summary>
-        <div class="faq-answer">Phù hợp nếu bạn đang quan tâm đến những câu hỏi phía sau doanh thu: còn lại bao nhiêu tiền thật, chi phí nằm ở đâu, vận hành có đang kéo mình lại không, nên tiếp tục bám nền tảng, xây thương hiệu, dùng AI hay chuẩn bị hướng đi mới. Sách không cam kết tăng đơn, nhưng giúp bạn nhìn cuộc chơi rõ hơn.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Sách có công thức kiếm tiền hoặc case study để copy không?</summary>
-        <div class="faq-answer">Không. Định vị của sách là <strong>không phải sách công thức từng bước</strong>. Giá trị chính nằm ở bài học, pattern và tư duy để người làm Ecom nhìn thị trường rõ hơn, thay vì chỉ chạy theo từng mẹo hoặc từng nền tảng.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Nên mua Ebook, Sách in hay Combo?</summary>
-        <div class="faq-answer"><strong>Ebook</strong> hợp nếu bạn muốn đọc ngay. <strong>Sách in</strong> hợp nếu bạn thích đọc chậm, gạch ý và để trên bàn làm việc. <strong>Combo</strong> hợp nếu bạn muốn nhận Ebook ngay nhưng vẫn có sách in để đọc lại lâu dài.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Ebook nhận như thế nào?</summary>
-        <div class="faq-answer">Sau khi thanh toán thành công, Ebook được gửi qua email bạn nhập trong form đặt sách. Vì vậy hãy điền đúng email trước khi tạo mã QR thanh toán.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Có xuất hóa đơn công ty không?</summary>
-        <div class="faq-answer">Có phần nhập thông tin xuất hóa đơn trong form. Thông tin này dùng để team xử lý hóa đơn thủ công sau khi bạn thanh toán thành công.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Có COD không?</summary>
-        <div class="faq-answer">Ở bản hiện tại, trang ưu tiên thanh toán bằng mã QR chuyển khoản để hệ thống tự động xác nhận đơn. Nếu cần hỗ trợ kiểm tra đơn, bạn có thể vào nhóm Zalo hỗ trợ được đặt ở cuối form.</div>
-      </details>
+
+    <div class="preview-reader-wrap fade-in">
+      <div class="preview-reader-container">
+        <div class="preview-reader-frame" id="inlinePreviewFrame">
+          <div id="inlinePreviewPages">
+            <!-- Pages rendered by JS when section enters viewport -->
+          </div>
+        </div>
+        <div class="preview-reader-fade" id="previewReaderFade"></div>
+        <div class="preview-scroll-hint" id="previewScrollHint">Cuộn để đọc tiếp ↓</div>
+      </div>
+      <div class="preview-reader-footer">
+        <a href="doc_thu_30_trang_chuong3.pdf" target="_blank" rel="noopener" style="font-size:12px;color:var(--muted);text-decoration:none">
+          Bạn cũng có thể <span style="color:var(--or)">đọc thử qua PDF →</span>
+        </a>
+      </div>
     </div>
-    <p class="faq-cta fade-in">Nếu vẫn còn phân vân, bạn có thể <a href="doc_thu_30_trang_chuong3.pdf" target="_blank" rel="noopener">đọc thử 30 trang</a> trước khi chọn loại sách.</p>
   </div>
 </section>
-
-<!-- BRIDGE 5 --><!-- BRIDGE 5 -->
-<div class="bridge" id="bridge5" style="background:linear-gradient(160deg,#FFF3E6,#FFE4C8)">
-  <div class="bridge-inner fade-in">
-    <p>Nếu bạn đã thấy mình trong một nhóm khách hàng phía trên và phần FAQ đã trả lời được những lăn tăn chính, bước tiếp theo rất đơn giản.</p>
-    <p><strong>Chọn loại sách phù hợp với cách bạn muốn đọc.</strong></p>
-  </div>
-</div>
 
 <!-- PRICING -->
 <section class="price-sec" id="pricing">
@@ -1081,6 +1241,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="sec-label" style="display:block;text-align:center">Chọn Loại Sách</span>
       <h2 class="big-title" style="font-size:clamp(32px,4vw,52px)">Chọn loại sách phù hợp</h2>
       <p class="sec-sub" style="margin:0 auto;text-align:center">Đọc ngay bằng Ebook, chọn sách in để đọc chậm và ghi chú, hoặc chọn Combo nếu bạn muốn có cả hai.</p>
+    </div>
+    <div class="real-book-proof fade-in">
+      <div class="real-book-proof-img">
+        <img src="assets/images/real-book-proof.jpg" alt="Sách in Ecom Truyền Kỳ bản thật" loading="lazy" decoding="async">
+      </div>
+      <div class="real-book-proof-copy">
+        <span>Sách in bản thật</span>
+        <h3>Cầm được, ghi chú được, đọc lại được.</h3>
+        <p>Sách in bản thật đã được hoàn thiện và dùng trong buổi ra mắt. Nếu bạn muốn đọc chậm, gạch ý và giữ lại trên bàn làm việc, bản sách in hoặc Combo sẽ hợp hơn Ebook đơn lẻ.</p>
+      </div>
     </div>
     <div class="price-grid fade-in">
       <div class="price-card">
@@ -1093,20 +1263,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li>Đọc trên mọi thiết bị</li>
           <li>Nhận ngay qua email</li>
         </ul>
-        <button class="pbtn out" onclick="selectProduct('ebook')">Đặt sách</button>
+        <button class="pbtn out" onclick="selectProduct('ebook')">Chọn Ebook</button>
       </div>
-      <div class="price-card feat">
+      <div class="price-card feat" style="position:relative;overflow:visible">
+        <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--or);color:#FFF8F0;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:6px 18px;border-radius:20px;white-space:nowrap;text-transform:uppercase">Đọc ngay + giữ bản giấy</div>
         <span class="price-type">Combo</span>
         <span class="price-ico">📚</span>
         <div class="price-amt"><span>₫</span>420.000</div>
         <div class="price-save">Tiết kiệm 128.000đ so với mua lẻ</div>
-        <p class="price-desc">Phù hợp nếu bạn muốn nhận Ebook ngay và vẫn có sách in để đọc lâu dài.</p>
+        <p class="price-desc">Nhận Ebook đọc ngay hôm nay — có sách in để đọc chậm, ghi chú và giữ lâu dài.</p>
         <ul class="price-feats">
-          <li>Sách in + File PDF</li>
-          <li>Đọc ngay &amp; giữ lâu dài</li>
-          <li>Giao hàng toàn quốc</li>
+          <li>Nhận Ebook ngay sau khi thanh toán</li>
+          <li>Có sách in để đọc chậm, ghi chú và đọc lại</li>
+          <li>Tiết kiệm 128.000đ so với mua lẻ</li>
         </ul>
-        <button class="pbtn main" onclick="selectProduct('combo')">Đặt sách</button>
+        <button class="pbtn main" onclick="selectProduct('combo')">Chọn Combo</button>
       </div>
       <div class="price-card">
         <span class="price-type">Sách In</span>
@@ -1117,12 +1288,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li>Sách in bản đầy đủ</li>
           <li>Giao hàng toàn quốc</li>
         </ul>
-        <button class="pbtn out" onclick="selectProduct('sach')">Đặt sách</button>
+        <button class="pbtn out" onclick="selectProduct('sach')">Chọn Sách in</button>
       </div>
     </div>
     <div class="price-microcopy fade-in">
       Có mã ưu đãi? Nhập ở bước thanh toán.<br>
-      Muốn xem nội dung trước? <a href="doc_thu_30_trang_chuong3.pdf" target="_blank" rel="noopener">Bạn có thể đọc thử 30 trang.</a>
+      Muốn xem nội dung trước? <a href="#preview" style="color:var(--or);font-weight:600">Bạn có thể đọc thử 30 trang.</a>
     </div>
   </div>
 </section>
@@ -1185,12 +1356,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <div class="fg full fg-quantity" id="quantityGroup" style="display:none">
-          <label class="fl">Số lượng</label>
+          <label class="fl">Số lượng sách/combo</label>
           <div class="qty-wrap">
-            <button type="button" class="qty-btn" id="qtyDecBtn" onclick="changeQty(-1)" aria-label="Giảm số lượng">−</button>
-            <input class="qty-input" id="f-quantity" type="number" min="1" max="20" value="1" onchange="onQtyChange()" oninput="onQtyChange()">
-            <button type="button" class="qty-btn" id="qtyIncBtn" onclick="changeQty(1)" aria-label="Tăng số lượng">+</button>
-            <span class="qty-hint">Cần đặt số lượng lớn hơn 20? <a href="https://zalo.me/g/vcrcrg823" target="_blank" rel="noopener">Liên hệ qua Zalo</a></span>
+            <button type="button" class="qty-btn" id="qtyMinus" onclick="changeQuantity(-1)" aria-label="Giảm số lượng">−</button>
+            <input class="qty-input" id="f-quantity" type="number" min="1" max="10" value="1" inputmode="numeric" onchange="handleQuantityInput()" oninput="handleQuantityInput()">
+            <button type="button" class="qty-btn" id="qtyPlus" onclick="changeQuantity(1)" aria-label="Tăng số lượng">+</button>
+            <div class="qty-hint">Ebook mặc định 1 link. Sách in/Combo có thể đặt nhiều cuốn trong một đơn. Cần hơn 10 cuốn? <a href="https://zalo.me/g/vcrcrg823" target="_blank">Liên hệ Zalo</a>.</div>
           </div>
         </div>
 
@@ -1236,17 +1407,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <button class="sub-btn" id="submitBtn" onclick="doOrder()">Tạo đơn & lấy mã QR thanh toán</button>
+      <button class="sub-btn" id="submitBtn" onclick="doOrder()">Đặt sách & tạo mã QR thanh toán</button>
 
-      <div class="form-microcopy">
-        Ebook được gửi qua email sau khi thanh toán thành công. Sách in giao theo địa chỉ bạn yêu cầu.<br>
-        Chuyển đúng nội dung hiển thị trên QR để đơn được xác nhận tự động.<br>
-        Cần hỗ trợ — <a href="https://zalo.me/g/vcrcrg823" target="_blank">vào nhóm Zalo hỗ trợ kiểm tra đơn →</a>
+      <div class="form-microcopy" style="display:flex;flex-direction:column;gap:8px;align-items:flex-start;text-align:left">
+        <span style="display:flex;align-items:center;gap:8px"><span style="color:var(--or);font-weight:700">✓</span> Ebook gửi qua email ngay sau thanh toán</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="color:var(--or);font-weight:700">✓</span> Sách in giao hàng toàn quốc theo địa chỉ bạn điền</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="color:var(--or);font-weight:700">✓</span> Có xuất hóa đơn công ty nếu cần</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="color:var(--or);font-weight:700">✓</span> Thanh toán bằng QR, hệ thống xác nhận tự động</span>
+        <span style="margin-top:4px;color:var(--muted)">Cần hỗ trợ — <a href="https://zalo.me/g/vcrcrg823" target="_blank" style="color:var(--or)">vào nhóm Zalo hỗ trợ kiểm tra đơn →</a></span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq-sec" id="faq">
+  <div class="container">
+    <div class="fade-in" style="text-align:center">
+      <span class="sec-label" style="display:block;text-align:center">FAQ</span>
+      <h2 class="big-title" style="font-size:clamp(32px,4vw,52px)">Còn lăn tăn trước khi đặt sách?</h2>
+      <p class="sec-sub" style="margin:0 auto;text-align:center">Một vài câu hỏi thường gặp để bạn tự xem cuốn này có thật sự phù hợp với mình không.</p>
+    </div>
+    <div class="faq-wrap fade-in">
+      <details class="faq-item" open>
+        <summary>Sách này khác gì một khóa học Ecom?</summary>
+        <div class="faq-answer">Sách này không đi theo kiểu checklist từng bước, cũng không dạy bạn chạy ads, tối ưu sàn hay làm TikTok Shop theo công thức. Điểm khác là sách cho bạn một góc nhìn rộng hơn về Ecom: thị trường thay đổi thế nào, vì sao nhiều người thắng, vì sao nhiều người gãy, và những pattern nào người đi sau nên nhìn ra.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Tôi mới bước vào Ecom thì có đọc được không?</summary>
+        <div class="faq-answer">Có, nếu bạn muốn hiểu bức tranh tổng thể trước khi bắt đầu. Cuốn này không hứa giúp bạn “kiếm tiền ngay”, nhưng phù hợp nếu bạn đang sợ nghe quá nhiều lời khuyên trái chiều và muốn tránh một số sai lầm quen thuộc của người đi trước.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Tôi đang bán rồi, sách có thực tế với tôi không?</summary>
+        <div class="faq-answer">Phù hợp nếu bạn đang quan tâm đến những câu hỏi phía sau doanh thu: còn lại bao nhiêu tiền thật, chi phí nằm ở đâu, vận hành có đang kéo mình lại không, nên tiếp tục bám nền tảng, xây thương hiệu, dùng AI hay chuẩn bị hướng đi mới. Sách không cam kết tăng đơn, nhưng giúp bạn nhìn cuộc chơi rõ hơn.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Sách có công thức kiếm tiền hoặc case study để copy không?</summary>
+        <div class="faq-answer">Không. Định vị của sách là <strong>không phải sách công thức từng bước</strong>. Giá trị chính nằm ở bài học, pattern và tư duy để người làm Ecom nhìn thị trường rõ hơn, thay vì chỉ chạy theo từng mẹo hoặc từng nền tảng.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Nên mua Ebook, Sách in hay Combo?</summary>
+        <div class="faq-answer"><strong>Ebook</strong> hợp nếu bạn muốn đọc ngay. <strong>Sách in</strong> hợp nếu bạn thích đọc chậm, gạch ý và để trên bàn làm việc. <strong>Combo</strong> hợp nếu bạn muốn nhận Ebook ngay nhưng vẫn có sách in để đọc lại lâu dài.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Ebook nhận như thế nào?</summary>
+        <div class="faq-answer">Sau khi thanh toán thành công, Ebook được gửi qua email bạn nhập trong form đặt sách. Vì vậy hãy điền đúng email trước khi tạo mã QR thanh toán.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Có xuất hóa đơn công ty không?</summary>
+        <div class="faq-answer">Có phần nhập thông tin xuất hóa đơn trong form. Thông tin này dùng để team xử lý hóa đơn thủ công sau khi bạn thanh toán thành công.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Có COD không?</summary>
+        <div class="faq-answer">Ở bản hiện tại, trang ưu tiên thanh toán bằng mã QR chuyển khoản để hệ thống tự động xác nhận đơn. Nếu cần hỗ trợ kiểm tra đơn, bạn có thể vào nhóm Zalo hỗ trợ được đặt ở cuối form.</div>
+      </details>
+    </div>
+    <p class="faq-cta fade-in">Nếu vẫn còn phân vân, bạn có thể <a href="#preview">đọc thử 30 trang</a> trước khi chọn loại sách.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="flogo">ECOM <span>TRUYỀN KỲ</span></div>
+  <div class="flinks">
+    <a href="https://facebook.com/anhlebksp" target="_blank">Facebook Tác Giả</a>
+    <a href="https://zalo.me/g/vcrcrg823" target="_blank">Nhóm Zalo Hỗ Trợ</a>
+    <a href="mailto:tuan.le@firstcom.vn">tuan.le@firstcom.vn</a>
+  </div>
+  <div class="fcopy">© 2026 Lê Anh Tuấn · Ecom Truyền Kỳ</div>
+</footer>
 <!-- QR MODAL -->
 <div class="qr-overlay hidden" id="qrOverlay">
   <div class="qr-box">
@@ -1300,7 +1529,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="confirm-msg">Nếu bạn đã chuyển khoản, hệ thống vẫn tự động xác nhận và gửi email trong vài phút. Bạn không cần giữ trang này mở.</div>
     <div class="confirm-actions">
       <button class="confirm-btn-cancel" onclick="doCloseQR()">Tôi chưa chuyển — Đóng QR</button>
-      <button class="confirm-btn-ok" onclick="closeConfirm()">Tôi đã chuyển khoản rồi — Ở lại chờ</button>
+      <button class="confirm-btn-ok" onclick="doCloseQRAndGoHome()">Tôi đã chuyển khoản rồi — Quay lại trang chính</button>
     </div>
   </div>
 </div>
@@ -1316,16 +1545,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="flogo">ECOM <span>TRUYỀN KỲ</span></div>
-  <div class="flinks">
-    <a href="https://facebook.com/anhlebksp" target="_blank">Facebook Tác Giả</a>
-    <a href="https://zalo.me/g/vcrcrg823" target="_blank">Nhóm Zalo Hỗ Trợ</a>
-    <a href="mailto:tuan.le@firstcom.vn">tuan.le@firstcom.vn</a>
-  </div>
-  <div class="fcopy">© 2026 Lê Anh Tuấn · Ecom Truyền Kỳ</div>
-</footer>
 
 <script>
 const WORKER_URL = 'https://ecom-truyen-ky-payment.huytrann1409.workers.dev';
@@ -1371,7 +1590,7 @@ async function applyCoupon() {
   try {
     const res  = await fetch(`${WORKER_URL}/validate-coupon`, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ product, coupon_code: code }),
+      body: JSON.stringify({ product, coupon_code: code, quantity: getQuantity() }),
     });
     const data = await res.json();
     if (data.ok) {
@@ -1407,38 +1626,39 @@ function getSelectedProduct() {
 }
 
 function getQuantity() {
+  const product = getSelectedProduct();
+  if (product === 'ebook') return 1;
   const el = document.getElementById('f-quantity');
-  if (!el) return 1;
-  let n = parseInt(el.value, 10);
-  if (isNaN(n) || n < 1) n = 1;
-  if (n > 20) n = 20;
-  return n;
+  const raw = Number(el ? el.value : 1);
+  if (!Number.isInteger(raw)) return 1;
+  return Math.min(10, Math.max(1, raw));
 }
 
-function changeQty(delta) {
+function setQuantity(value, resetCoupon = true) {
   const el = document.getElementById('f-quantity');
   if (!el) return;
-  let n = getQuantity() + delta;
-  if (n < 1) n = 1;
-  if (n > 20) n = 20;
-  el.value = n;
-  onQtyChange();
+  const qty = Math.min(10, Math.max(1, parseInt(value, 10) || 1));
+  el.value = qty;
+  const minus = document.getElementById('qtyMinus');
+  const plus  = document.getElementById('qtyPlus');
+  if (minus) minus.disabled = qty <= 1;
+  if (plus)  plus.disabled  = qty >= 10;
+
+  if (resetCoupon && validatedCoupon) {
+    validatedCoupon = null;
+    const result = document.getElementById('couponResult');
+    result.textContent = 'Số lượng thay đổi — vui lòng áp dụng lại mã giảm giá.';
+    result.className = 'coupon-result fail';
+  }
+  updatePriceDisplay();
 }
 
-function onQtyChange() {
-  const el = document.getElementById('f-quantity');
-  if (el) {
-    let n = parseInt(el.value, 10);
-    if (isNaN(n) || n < 1) { el.value = 1; }
-    else if (n > 20) { el.value = 20; }
-  }
-  const dec = document.getElementById('qtyDecBtn');
-  const inc = document.getElementById('qtyIncBtn');
-  const n = getQuantity();
-  if (dec) dec.disabled = (n <= 1);
-  if (inc) inc.disabled = (n >= 20);
-  // Recompute coupon if active (server validates against base amount; client just shows price)
-  updatePriceDisplay();
+function changeQuantity(delta) {
+  setQuantity(getQuantity() + delta);
+}
+
+function handleQuantityInput() {
+  setQuantity(getQuantity());
 }
 
 function updatePriceDisplay() {
@@ -1450,21 +1670,15 @@ function updatePriceDisplay() {
   if (!val || !PRODUCT_INFO[val]) { display.style.display = 'none'; return; }
 
   const qty = getQuantity();
-  const unitRaw = PRODUCT_INFO[val].raw;
+  const total = PRODUCT_INFO[val].raw * qty;
+  const qtyLabel = val === 'ebook' ? '' : ` × ${qty}`;
 
-  let displayName = PRODUCT_INFO[val].name;
-  if (qty > 1) displayName += ' × ' + qty;
-  document.getElementById('selectedProductName').textContent = displayName;
-
+  document.getElementById('selectedProductName').textContent = PRODUCT_INFO[val].name + qtyLabel;
   if (validatedCoupon && validatedCoupon.final_amount) {
-    // Coupon applies to unit price → multiply by qty
-    const originalTotal = unitRaw * qty;
-    const finalTotal    = validatedCoupon.final_amount * qty;
-    origEl.textContent   = originalTotal.toLocaleString('vi-VN') + 'đ';
+    origEl.textContent   = Number(validatedCoupon.original_amount || total).toLocaleString('vi-VN') + 'đ';
     origEl.style.display = 'block';
-    priceEl.textContent  = finalTotal.toLocaleString('vi-VN') + 'đ';
+    priceEl.textContent  = Number(validatedCoupon.final_amount).toLocaleString('vi-VN') + 'đ';
   } else {
-    const total = unitRaw * qty;
     origEl.style.display = 'none';
     priceEl.textContent  = total.toLocaleString('vi-VN') + 'đ';
   }
@@ -1505,21 +1719,26 @@ function onRadioChange(radio) {
   const addrGroup = document.getElementById('addressGroup');
   const addrInput = document.getElementById('f-address');
   const qtyGroup  = document.getElementById('quantityGroup');
+
   if (val === 'ebook') {
     addrGroup.style.display = 'none';
     addrInput.required = false;
+    if (qtyGroup) qtyGroup.style.display = 'none';
+    setQuantity(1, false);
   } else {
     addrGroup.style.display = 'flex';
     addrInput.required = true;
+    if (qtyGroup) qtyGroup.style.display = 'flex';
+    setQuantity(getQuantity(), false);
   }
-  if (qtyGroup) qtyGroup.style.display = 'flex';
+
   if (validatedCoupon) {
     validatedCoupon = null;
     document.getElementById('couponResult').textContent = 'Sản phẩm thay đổi — vui lòng áp dụng lại mã giảm giá.';
     document.getElementById('couponResult').className = 'coupon-result fail';
   }
   document.getElementById('radioErr').style.display = 'none';
-  onQtyChange();
+  updatePriceDisplay();
 }
 
 // ── Pricing cards → jump to form + auto select ──────────
@@ -1550,7 +1769,7 @@ function toggleInvoiceFields() {
 }
 
 // ── Clear errors on input ────────────────────────────────
-document.querySelectorAll('#f-name,#f-phone,#f-email,#f-address,#f-invoice-company-name,#f-invoice-tax-code,#f-invoice-email')
+document.querySelectorAll('#f-name,#f-phone,#f-email,#f-address,#f-quantity,#f-invoice-company-name,#f-invoice-tax-code,#f-invoice-email')
   .forEach(inputField => { inputField.addEventListener('input', function() { this.classList.remove('err'); }); });
 
 // ── Submit order ─────────────────────────────────────────
@@ -1560,6 +1779,7 @@ async function doOrder() {
   const phone   = document.getElementById('f-phone').value.trim();
   const email   = document.getElementById('f-email').value.trim();
   const product = getSelectedProduct();
+  const quantity = getQuantity();
   const address = document.getElementById('f-address').value.trim();
   const note    = document.getElementById('f-note').value.trim();
   const coupon_code             = document.getElementById('f-coupon').value.trim().toUpperCase();
@@ -1577,6 +1797,7 @@ async function doOrder() {
   if (!phoneValid)   { document.getElementById('f-phone').classList.add('err'); hasErr = true; }
   if (!email.includes('@') || !email.includes('.')) { document.getElementById('f-email').classList.add('err'); hasErr = true; }
   if (!product)      { document.getElementById('radioErr').style.display = 'block'; hasErr = true; }
+  if (product !== 'ebook' && (quantity < 1 || quantity > 10)) { document.getElementById('f-quantity').classList.add('err'); hasErr = true; }
   if (product !== 'ebook' && !address) { document.getElementById('f-address').classList.add('err'); hasErr = true; }
   if (is_invoice_requested) {
     if (!invoice_company_name) { document.getElementById('f-invoice-company-name').classList.add('err'); hasErr = true; }
@@ -1598,32 +1819,6 @@ async function doOrder() {
   const btn = document.getElementById('submitBtn');
   btn.disabled = true; btn.textContent = '⏳ Đang tạo đơn...';
 
-  const quantity = getQuantity();
-  const unitPrice = PRODUCT_INFO[product] ? PRODUCT_INFO[product].raw : 0;
-  const trackingValue = unitPrice * quantity;
-
-  // InitiateCheckout pixel event
-  try {
-    fbq('track', 'InitiateCheckout', {
-      value: trackingValue,
-      currency: 'VND',
-      content_ids: [product],
-      content_type: 'product',
-      contents: [{ id: product, quantity: quantity, item_price: unitPrice }],
-      num_items: quantity
-    });
-  } catch(_){}
-  // GTM dataLayer push
-  try {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'begin_checkout',
-      currency: 'VND',
-      value: trackingValue,
-      items: [{ item_id: product, item_name: PRODUCT_INFO[product] ? PRODUCT_INFO[product].name : product, price: unitPrice, quantity: quantity }]
-    });
-  } catch(_){}
-
   try {
     const res = await fetch(`${WORKER_URL}/create-order`, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -1641,22 +1836,61 @@ async function doOrder() {
       }
       alert('❌ ' + message); return;
     }
-    showQRModal(data.order_id, data.amount, data.qr_url);
+    const confirmedAmount = Number(data.amount || 0);
+    const confirmedQuantity = Number(data.quantity || quantity || 1);
+    const itemPrice = confirmedQuantity > 0 ? Math.round(confirmedAmount / confirmedQuantity) : confirmedAmount;
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'begin_checkout',
+      event_id: data.order_id,
+      order_id: data.order_id,
+      product: product,
+      quantity: confirmedQuantity,
+      value: confirmedAmount,
+      currency: 'VND',
+      ecommerce: {
+        currency: 'VND',
+        value: confirmedAmount,
+        items: [{
+          item_id: product,
+          item_name: PRODUCT_INFO[product] ? PRODUCT_INFO[product].name : product,
+          price: itemPrice,
+          quantity: confirmedQuantity
+        }]
+      }
+    });
+
+    try {
+      fbq('track', 'InitiateCheckout', {
+        value: confirmedAmount,
+        currency: 'VND',
+        content_ids: [product],
+        content_type: 'product',
+        contents: [{ id: product, quantity: confirmedQuantity, item_price: itemPrice }],
+        num_items: confirmedQuantity,
+        order_id: data.order_id
+      }, {
+        eventID: data.order_id
+      });
+    } catch(_){}
+
+    showQRModal(data.order_id, confirmedAmount, data.qr_url, product, confirmedQuantity);
   } catch (err) {
     alert('❌ Không kết nối được server. Vui lòng kiểm tra mạng và thử lại.');
   } finally {
-    btn.disabled = false; btn.textContent = 'Tạo đơn & lấy mã QR thanh toán';
+    btn.disabled = false; btn.textContent = 'Đặt sách & tạo mã QR thanh toán';
   }
 }
 
 // ── QR Modal ─────────────────────────────────────────────
 let pollInterval = null, countdownInterval = null, currentOrderId = null, currentProduct = null, currentAmount = null, currentQuantity = 1;
 
-function showQRModal(orderId, amount, qrUrl) {
+function showQRModal(orderId, amount, qrUrl, product, quantity = 1) {
   currentOrderId = orderId;
-  currentProduct = getSelectedProduct();
-  currentAmount  = amount;
-  currentQuantity = getQuantity();
+  currentProduct = product || getSelectedProduct();
+  currentAmount  = Number(amount || 0);
+  currentQuantity = Number(quantity || 1);
   document.getElementById('qrAmount').textContent = Number(amount).toLocaleString('vi-VN') + 'đ';
   document.getElementById('qrContent').textContent = orderId;
   document.getElementById('qrImg').src = qrUrl;
@@ -1688,35 +1922,47 @@ function startPolling(orderId) {
       const res  = await fetch(`${WORKER_URL}/check-order?id=${orderId}`);
       const data = await res.json();
       if (data.ok && data.status === 'PAID') {
+        const paidAmount = Number(data.amount || currentAmount || 0);
+        const paidProduct = data.product || currentProduct || '';
+        const paidQuantity = Number(data.quantity || currentQuantity || 1);
+        const paidItemPrice = paidQuantity > 0 ? Math.round(paidAmount / paidQuantity) : paidAmount;
+
         stopAll(); showSuccess();
-        const unitPrice = PRODUCT_INFO[currentProduct] ? PRODUCT_INFO[currentProduct].raw : 0;
-        // Fire Purchase pixel only on PAID
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'purchase',
+          event_id: orderId,
+          order_id: orderId,
+          product: paidProduct,
+          quantity: paidQuantity,
+          value: paidAmount,
+          currency: 'VND',
+          ecommerce: {
+            transaction_id: orderId,
+            currency: 'VND',
+            value: paidAmount,
+            items: [{
+              item_id: paidProduct,
+              item_name: PRODUCT_INFO[paidProduct] ? PRODUCT_INFO[paidProduct].name : paidProduct,
+              price: paidItemPrice,
+              quantity: paidQuantity
+            }]
+          }
+        });
+
+        // Fire Purchase pixel only on PAID, dedupe with CAPI by eventID = order_id
         try {
           fbq('track', 'Purchase', {
-            value: currentAmount || 0, currency: 'VND',
-            content_ids: [currentProduct || ''],
+            value: paidAmount,
+            currency: 'VND',
+            content_ids: [paidProduct],
             content_type: 'product',
-            contents: [{ id: currentProduct || '', quantity: currentQuantity, item_price: unitPrice }],
-            num_items: currentQuantity,
-            order_id: orderId,
-          });
-        } catch(_){}
-        // GTM purchase event
-        try {
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            event: 'purchase',
-            ecommerce: {
-              transaction_id: orderId,
-              value: currentAmount || 0,
-              currency: 'VND',
-              items: [{
-                item_id: currentProduct || '',
-                item_name: PRODUCT_INFO[currentProduct] ? PRODUCT_INFO[currentProduct].name : currentProduct,
-                price: unitPrice,
-                quantity: currentQuantity
-              }]
-            }
+            contents: [{ id: paidProduct, quantity: paidQuantity, item_price: paidItemPrice }],
+            num_items: paidQuantity,
+            order_id: orderId
+          }, {
+            eventID: orderId
           });
         } catch(_){}
       }
@@ -1754,7 +2000,7 @@ function doCloseQR() {
   stopAll();
   document.getElementById('confirmOverlay').classList.add('hidden');
   document.getElementById('qrOverlay').classList.add('hidden');
-  currentOrderId = null; currentProduct = null; currentAmount = null;
+  currentOrderId = null; currentProduct = null; currentAmount = null; currentQuantity = 1;
 }
 
 // ── Preview reader ────────────────────────────────────────
@@ -1762,11 +2008,17 @@ let previewBuilt = false;
 const PREVIEW_CACHE_BUST = 'v6-20260609';
 
 function previewCandidates(pad) {
+  const v = PREVIEW_CACHE_BUST;
   return [
-    `./page-${pad}.webp?v=${PREVIEW_CACHE_BUST}`,
-    `page-${pad}.webp?v=${PREVIEW_CACHE_BUST}`,
-    `./preview-pages/page-${pad}.webp?v=${PREVIEW_CACHE_BUST}`,
-    `preview-pages/page-${pad}.webp?v=${PREVIEW_CACHE_BUST}`
+    `preview-pages/page-${pad}.webp?v=${v}`,
+    `./preview-pages/page-${pad}.webp?v=${v}`,
+    `preview-pages/page-${pad}.jpg?v=${v}`,
+    `./preview-pages/page-${pad}.jpg?v=${v}`,
+    `preview-pages/page-${pad}.png?v=${v}`,
+    `./preview-pages/page-${pad}.png?v=${v}`,
+    `page-${pad}.webp?v=${v}`,
+    `page-${pad}.jpg?v=${v}`,
+    `page-${pad}.png?v=${v}`
   ];
 }
 
@@ -1774,28 +2026,27 @@ function loadPreviewImageInto(wrap, pad) {
   const pageNum = parseInt(pad, 10);
   const candidates = previewCandidates(pad);
   let idx = 0;
-  const img = new Image();
-  img.style.cssText = 'width:100%;display:block';
-  img.alt = `Trang ${pageNum} đọc thử`;
-  img.loading = 'lazy';
+  const img = document.createElement('img');
+  img.style.cssText = 'width:100%;display:block;height:auto';
+  img.alt = 'Trang ' + pageNum + ' đọc thử';
 
-  img.onload = () => {
-    wrap.innerHTML = '';
-    wrap.appendChild(img);
+  img.onload = function() {
+    const ph = wrap.querySelector('.preview-page-placeholder');
+    if (ph) ph.remove();
   };
 
-  img.onerror = () => {
+  img.onerror = function() {
     idx += 1;
     if (idx < candidates.length) {
       img.src = candidates[idx];
       return;
     }
     const ph = wrap.querySelector('.preview-page-placeholder');
-    if (ph) {
-      ph.innerHTML = `Không tải được trang ${pageNum}.<br>Kiểm tra file <b>page-${pad}.webp</b> ở cùng cấp với index.html hoặc trong thư mục <b>preview-pages</b>.`;
-    }
+    if (ph) ph.innerHTML = 'Không tải được trang ' + pageNum + '.<br>Kiểm tra file <b>page-' + pad + '.webp</b> ở thư mục <b>preview-pages</b>.';
   };
 
+  // Append to DOM FIRST, then set src — ensures proper render dimensions
+  wrap.appendChild(img);
   img.src = candidates[0];
 }
 
@@ -1830,7 +2081,14 @@ function buildPreviewPages() {
   `;
   scroll.appendChild(endCta);
 
-  // Lazy-load with IntersectionObserver. Fallback supports BOTH root files and /preview-pages folder.
+  // Eager load pages 1–5 immediately (không phụ thuộc vào observer)
+  for (let i = 1; i <= 5; i++) {
+    const pad = String(i).padStart(2, '0');
+    const wrap = scroll.querySelector('[data-page="' + pad + '"]');
+    if (wrap) { wrap.dataset.loaded = '1'; loadPreviewImageInto(wrap, pad); }
+  }
+
+  // Lazy-load pages 6–30 với scroll container làm root
   const pageObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1843,16 +2101,95 @@ function buildPreviewPages() {
         }
       }
     });
-  }, { rootMargin: '600px 0px' });
+  }, { root: scroll, rootMargin: '600px 0px' });
 
-  document.querySelectorAll('.preview-page-wrap').forEach(w => pageObs.observe(w));
+  scroll.querySelectorAll('.preview-page-wrap').forEach((w, idx) => {
+    if (idx >= 5) pageObs.observe(w);
+  });
 }
 
+// ── Inline preview reader ─────────────────────────────────
+let inlineBuilt = false;
+
+function buildInlinePreview() {
+  if (inlineBuilt) return;
+  inlineBuilt = true;
+
+  const container = document.getElementById('inlinePreviewPages');
+  const frame     = document.getElementById('inlinePreviewFrame');
+  const hint      = document.getElementById('previewScrollHint');
+  if (!container || !frame) return;
+
+  // Build 30 page wrappers
+  for (let i = 1; i <= 30; i++) {
+    const pad = String(i).padStart(2, '0');
+    const wrap = document.createElement('div');
+    wrap.className = 'preview-page-wrap';
+    wrap.dataset.page = pad;
+    const ph = document.createElement('div');
+    ph.className = 'preview-page-placeholder';
+    ph.textContent = 'Đang tải trang ' + i + '...';
+    wrap.appendChild(ph);
+    container.appendChild(wrap);
+  }
+
+  // CTA at end of inline reader
+  const inlineCta = document.createElement('div');
+  inlineCta.className = 'preview-end-cta';
+  inlineCta.innerHTML = '<p style="font-size:13px;opacity:.7;margin-bottom:12px">Bạn đã xem hết 30 trang thử.</p><h3>Muốn đọc tiếp toàn bộ cuốn sách?</h3><p>Ecom Truyền Kỳ giúp bạn nhìn toàn cảnh cuộc chơi Ecom — để biết mình đang ở đâu, nên ưu tiên điều gì và chuẩn bị thế nào cho giai đoạn tới.</p><a href="#pricing" class="preview-end-btn" onclick="void(0)">Đặt sách tại ecomtruyenky.com →</a>';
+  container.appendChild(inlineCta);
+
+  // Eager load pages 1–3 immediately
+  for (let i = 1; i <= 3; i++) {
+    const pad = String(i).padStart(2, '0');
+    const wrap = container.querySelector('[data-page="' + pad + '"]');
+    if (wrap) { wrap.dataset.loaded = '1'; loadPreviewImageInto(wrap, pad); }
+  }
+
+  // Lazy-load pages 4–30 with frame as IntersectionObserver root
+  const inlineObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        const w = entry.target;
+        if (!w.dataset.loaded) {
+          w.dataset.loaded = '1';
+          loadPreviewImageInto(w, w.dataset.page);
+          inlineObs.unobserve(w);
+        }
+      }
+    });
+  }, { root: frame, rootMargin: '300px 0px' });
+
+  container.querySelectorAll('.preview-page-wrap').forEach(function(w, idx) {
+    if (idx >= 3) inlineObs.observe(w);
+  });
+
+  // Auto-hide scroll hint + fade after first scroll
+  frame.addEventListener('scroll', function() {
+    const fade = document.getElementById('previewReaderFade');
+    if (hint) hint.style.opacity = '0';
+    if (fade) fade.style.opacity = '0';
+  }, { once: true });
+}
+
+// Trigger inline preview when section enters viewport
+(function() {
+  const sec = document.getElementById('preview');
+  if (!sec) return;
+  const secObs = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      buildInlinePreview();
+      secObs.disconnect();
+    }
+  }, { rootMargin: '400px 0px' });
+  secObs.observe(sec);
+})();
+
 function openPreview() {
-  buildPreviewPages();
   document.getElementById('previewOverlay').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
   document.getElementById('previewScroll').scrollTop = 0;
+  requestAnimationFrame(() => buildPreviewPages());
 }
 
 function closePreview() {
@@ -1886,21 +2223,8 @@ function closePreview() {
   }
 })();
 
-// ── Close preview on ESC ──────────────────────────────────
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    if (!document.getElementById('previewOverlay').classList.contains('hidden')) closePreview();
-  }
-});
-
-// ── goHomeSection / doCloseQRAndGoHome ────────────────────
-function goHomeSection() {
-  document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
-}
-function doCloseQRAndGoHome() {
-  doCloseQR();
-  goHomeSection();
-}
+// ── Quantity initial state ───────────────────────────────
+setQuantity(1, false);
 
 // ── Hero carousel ─────────────────────────────────────────
 (function(){
@@ -1911,7 +2235,7 @@ function doCloseQRAndGoHome() {
 
   const slides = track.querySelectorAll('.hero-carousel-slide');
   const total = slides.length;
-  if (!total) return;
+  if (total <= 1) return;
 
   let current = 0;
   let timer;
@@ -1922,11 +2246,13 @@ function doCloseQRAndGoHome() {
     current = ((n % total) + total) % total;
     track.style.transform = 'translateX(-' + (current * 100) + '%)';
   }
+
   function next() { goTo(current + 1); }
   function prev() { goTo(current - 1); }
+
   function resetTimer() {
     clearInterval(timer);
-    timer = setInterval(function(){ if (!paused) next(); }, 3000);
+    timer = setInterval(function(){ if (!paused) next(); }, 3500);
   }
 
   if (btnPrev) btnPrev.addEventListener('click', function(){ prev(); resetTimer(); });
@@ -1949,6 +2275,22 @@ function doCloseQRAndGoHome() {
 
   resetTimer();
 })();
+
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    if (!document.getElementById('previewOverlay').classList.contains('hidden')) closePreview();
+  }
+});
+
+// ── goHomeSection / doCloseQRAndGoHome ────────────────────
+function goHomeSection() {
+  document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+}
+function doCloseQRAndGoHome() {
+  doCloseQR();
+  goHomeSection();
+}
 </script>
 </body>
 </html>
