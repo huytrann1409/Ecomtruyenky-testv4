@@ -128,12 +128,15 @@ section{padding:110px 48px}
   box-shadow:0 30px 60px -12px rgba(44,26,14,.28);
   object-fit:cover;
 }
-/* === HERO CAROUSEL — FINAL FIX THEO ẢNH GỐC 01 & 10 ===
+/* === HERO CAROUSEL — FINAL FIX HERO 01 THEO TỈ LỆ ẢNH GỐC ===
    Chỉ sửa phần hero carousel.
+   Lý do sửa:
+   - Ảnh gốc hero-book-01 có tỉ lệ khoảng 585/896, hẹp hơn khung 3/4 cũ.
+   - Nếu giữ khung 3/4 và dùng object-fit:cover thì ảnh chắc chắn bị crop trên/dưới.
+   - Vì vậy phải đổi tỉ lệ khung carousel theo tỉ lệ bìa thật, không dùng scale.
    Mục tiêu:
-   - Hero 01 và 10 lấp đầy khung.
-   - Không lộ viền trắng.
-   - Không zoom/crop quá tay.
+   - Hero 01 hiện đủ bìa, không mất logo đáy, không lộ viền trắng.
+   - Hero 10 vẫn phủ khung, crop rất nhẹ nếu cần.
    - Hero 02–09 giữ contain để không mất chữ.
 */
 .hero-carousel{
@@ -155,7 +158,7 @@ section{padding:110px 48px}
   flex:0 0 100%;
   min-width:100%;
   width:100%;
-  aspect-ratio:3/4;
+  aspect-ratio:585/896;
   overflow:hidden;
   display:flex;
   align-items:center;
@@ -172,7 +175,6 @@ section{padding:110px 48px}
   object-fit:cover;
   transform:none!important;
   transform-origin:center center;
-  object-position:center center;
 }
 .hero-front-cover-slide img{
   object-fit:cover;
@@ -209,7 +211,7 @@ section{padding:110px 48px}
 .hero-carousel-prev{left:10px}
 .hero-carousel-next{right:10px}
 @media(max-width:900px){
-  .hero-carousel{width:100%;border-radius:16px;max-width:380px;margin:0 auto}
+  .hero-carousel{width:100%;border-radius:16px;max-width:360px;margin:0 auto}
   .hero-carousel-arrow{width:32px;height:32px;opacity:.72}
   .hero-carousel-arrow svg{width:14px;height:14px}
   .hero-front-cover-slide img,
