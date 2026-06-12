@@ -128,13 +128,11 @@ section{padding:110px 48px}
   box-shadow:0 30px 60px -12px rgba(44,26,14,.28);
   object-fit:cover;
 }
-/* === HERO CAROUSEL — SAFE HYBRID FROM OLD WORKING FILE ===
-   Giữ cơ chế carousel cũ đang chạy ổn:
-   - Không dùng query string ?v để tránh khác hành vi với file cũ.
-   - Không đổi aspect sang 2:3 ở CSS nữa.
-   - Mỗi slide là một wrapper 3:4; ảnh bên trong tự fit/crop.
-   - Bìa trước/sau được scale bên trong wrapper để cắt phần viền trắng baked-in.
-   - Trang mục lục/chương giữ contain để không mất chữ.
+/* === HERO CAROUSEL — FIX HERO 01 & 10, GIỮ 02–09 KHÔNG CROP CHỮ ===
+   Chỉ sửa phần hero carousel.
+   Không sửa layout hero, không sửa JS, không sửa section khác.
+   - Hero 01 / 10 dùng class riêng để giảm crop quá tay.
+   - Ảnh 02–09 giữ contain để không mất chữ.
 */
 .hero-carousel{
   width:min(100%,420px);
@@ -170,12 +168,20 @@ section{padding:110px 48px}
 }
 .hero-cover-slide img{
   object-fit:cover;
-  transform:scale(1.13);
   transform-origin:center center;
+}
+.hero-front-cover-slide img{
+  transform:scale(1.055);
+  object-position:center center;
+}
+.hero-back-cover-slide img{
+  transform:scale(1.035);
+  object-position:center center;
 }
 .hero-scan-slide img{
   object-fit:contain;
   background:#fff;
+  transform:none;
 }
 .hero-carousel-dots{display:none!important}
 .hero-carousel-arrow{
@@ -199,7 +205,10 @@ section{padding:110px 48px}
   .hero-carousel{width:100%;border-radius:16px;max-width:380px;margin:0 auto}
   .hero-carousel-arrow{width:32px;height:32px;opacity:.72}
   .hero-carousel-arrow svg{width:14px;height:14px}
+  .hero-front-cover-slide img{transform:scale(1.05)}
+  .hero-back-cover-slide img{transform:scale(1.03)}
 }
+
 .book-scene{position:relative;width:340px;height:400px;display:flex;align-items:center;justify-content:center}
 .book3d{width:220px;height:308px;position:relative;animation:bkFloat 5s ease-in-out infinite}
 @keyframes bkFloat{0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(-5deg) translateY(-16px)}}
@@ -823,7 +832,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-right fade-in">
       <div class="hero-carousel">
         <div class="hero-carousel-track" id="heroCarouselTrack">
-          <div class="hero-carousel-slide hero-cover-slide">
+          <div class="hero-carousel-slide hero-cover-slide hero-front-cover-slide">
             <img src="assets/images/hero-book-01.jpg" alt="Bìa trước sách Ecom Truyền Kỳ" loading="eager" decoding="async">
           </div>
           <div class="hero-carousel-slide hero-scan-slide">
@@ -850,7 +859,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="hero-carousel-slide hero-scan-slide">
             <img src="assets/images/hero-book-09.jpg" alt="Chương 4 — Vươn ra thế giới" loading="eager" decoding="async">
           </div>
-          <div class="hero-carousel-slide hero-cover-slide">
+          <div class="hero-carousel-slide hero-cover-slide hero-back-cover-slide">
             <img src="assets/images/hero-book-10.jpg" alt="Bìa sau sách Ecom Truyền Kỳ" loading="eager" decoding="async">
           </div>
         </div>
