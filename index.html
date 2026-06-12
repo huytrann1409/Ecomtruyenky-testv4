@@ -130,7 +130,8 @@ section{padding:110px 48px}
 }
 /* === HERO CAROUSEL === */
 .hero-carousel{
-  width:min(100%,420px);
+  width:min(100%,430px);
+  aspect-ratio:3/4;
   border-radius:24px;
   overflow:hidden;
   box-shadow:0 28px 58px -16px rgba(44,26,14,.24);
@@ -139,30 +140,32 @@ section{padding:110px 48px}
   -webkit-user-select:none;
   background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,248,240,.92));
   border:1.5px solid rgba(232,82,10,.13);
-  padding:12px;
+  padding:10px;
 }
 .hero-carousel-track{
   display:flex;
+  height:100%;
   transition:transform .5s cubic-bezier(.4,0,.2,1);
   will-change:transform;
-  border-radius:16px;
+  border-radius:18px;
   overflow:hidden;
   background:#FFF8F0;
 }
 .hero-carousel-slide{
   min-width:100%;
   width:100%;
+  height:100%;
   display:block;
-  aspect-ratio:3/4;
+  object-fit:contain;
+  object-position:center center;
   background:#FFF8F0;
 }
 .hero-cover-slide{
   object-fit:contain;
-  padding:18px;
+  background:#FFF8F0;
 }
 .hero-scan-slide{
   object-fit:contain;
-  padding:8px;
   background:#fff;
 }
 .hero-carousel-arrow{
@@ -810,7 +813,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-right fade-in">
       <div class="hero-carousel">
         <div class="hero-carousel-track" id="heroCarouselTrack">
-          <img src="assets/images/hero-book-01.png" alt="Bìa trước sách Ecom Truyền Kỳ" class="hero-carousel-slide hero-cover-slide" loading="eager">
+          <img src="assets/images/hero-book-01.jpg" alt="Bìa trước sách Ecom Truyền Kỳ" class="hero-carousel-slide hero-cover-slide" loading="eager">
           <img src="assets/images/hero-book-02.jpg" alt="Mục lục Ecom Truyền Kỳ — trang 1" class="hero-carousel-slide hero-scan-slide" loading="lazy">
           <img src="assets/images/hero-book-03.jpg" alt="Mục lục Ecom Truyền Kỳ — trang 2" class="hero-carousel-slide hero-scan-slide" loading="lazy">
           <img src="assets/images/hero-book-04.jpg" alt="Mục lục Ecom Truyền Kỳ — trang 3" class="hero-carousel-slide hero-scan-slide" loading="lazy">
@@ -1093,8 +1096,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- Event photo -->
       <div style="display:flex;justify-content:center">
-        <img src="assets/images/author-event-talk.jpg"
+        <img src="assets/images/author-event-talk.png"
              alt="Lê Anh Tuấn chia sẻ tại sự kiện ra mắt sách Ecom Truyền Kỳ"
+             onerror="this.onerror=null;this.src='assets/images/event-group-books.jpg';"
              style="width:min(100%,380px);border-radius:20px;display:block;box-shadow:0 24px 56px rgba(44,26,14,.14);object-fit:cover"
              loading="lazy">
       </div>
@@ -1246,7 +1250,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="real-book-proof fade-in">
       <div class="real-book-proof-img">
-        <img src="assets/images/real-book-proof.png" alt="Sách in Ecom Truyền Kỳ bản thật" loading="lazy" decoding="async">
+        <img src="assets/images/real-book-proof.jpg" alt="Sách in Ecom Truyền Kỳ bản thật" loading="lazy" decoding="async">
       </div>
       <div class="real-book-proof-copy">
         <span>Sách in bản thật</span>
