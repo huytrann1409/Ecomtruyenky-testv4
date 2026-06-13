@@ -77,15 +77,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;height:60px;display:flex;ali
 
 /* STICKY BOTTOM */
 .sticky-bot{position:fixed;bottom:0;left:0;right:0;z-index:998;background:var(--brown);padding:10px 40px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -4px 24px rgba(0,0,0,.18)}
+.bot-middle{display:flex;align-items:center;gap:14px;flex:1;justify-content:center;min-width:0}
 .bot-text{font-size:13px;color:rgba(255,255,255,.7);white-space:nowrap}
 .bot-text strong{color:var(--gold)}
-.bot-actions{display:flex;gap:10px;align-items:center;flex-shrink:0}
+.bot-read{background:transparent;border:1.5px solid rgba(255,255,255,.35);color:#fff;padding:8px 16px;border-radius:6px;font-weight:700;font-size:13px;text-decoration:none;transition:all .3s;white-space:nowrap;flex-shrink:0}
+.bot-read:hover{border-color:#fff;background:rgba(255,255,255,.08)}
 .bot-support{background:transparent;border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8);padding:8px 16px;border-radius:6px;font-weight:600;font-size:13px;text-decoration:none;transition:all .3s;white-space:nowrap}
 .bot-support:hover{border-color:rgba(255,255,255,.5);color:#fff}
-.bot-buy{background:var(--or);color:#fff;padding:8px 20px;border-radius:6px;font-weight:800;font-size:13px;text-decoration:none;transition:all .3s;white-space:nowrap;animation:gpulse 2.5s infinite}
+.bot-buy{background:var(--or);color:#fff;padding:8px 20px;border-radius:6px;font-weight:800;font-size:13px;text-decoration:none;transition:all .3s;white-space:nowrap;flex-shrink:0;animation:gpulse 2.5s infinite}
 @keyframes gpulse{0%,100%{box-shadow:0 0 0 0 rgba(232,82,10,.5)}50%{box-shadow:0 0 0 8px rgba(232,82,10,0)}}
 .bot-buy:hover{background:var(--or2);animation:none}
-@media(max-width:700px){.sticky-bot{padding:8px 16px}.bot-text{display:none}.bot-support{display:none}}
+@media(max-width:700px){
+  .sticky-bot{padding:8px 12px;gap:8px}
+  .bot-middle{display:none}
+  .bot-read{padding:9px 14px;font-size:13px;flex:1;text-align:center}
+  .bot-buy{padding:9px 16px;font-size:13px;flex:1;text-align:center}
+}
 
 /* SECTIONS */
 section{padding:110px 48px}
@@ -818,23 +825,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- STICKY BOTTOM -->
 <div class="sticky-bot">
-  <div class="bot-text">Combo Ebook + Sách in chỉ <strong>420.000đ</strong></div>
-  <div class="bot-actions">
+  <a href="#preview" class="bot-read">Đọc thử 30 trang</a>
+  <div class="bot-middle">
+    <div class="bot-text">Combo Ebook + Sách in chỉ <strong>420.000đ</strong></div>
     <a href="https://zalo.me/g/vcrcrg823" target="_blank" class="bot-support">Hỗ trợ Zalo</a>
-    <a href="#pricing" class="bot-buy">Đặt sách →</a>
   </div>
+  <a href="#pricing" class="bot-buy">Đặt sách →</a>
 </div>
 
 <!-- HERO -->
 <section style="padding-top:100px;padding-bottom:80px;padding-left:48px;padding-right:48px" id="home">
   <div class="container hero">
     <div class="hero-left fade-in">
-      <h1 class="big-title">Làm Ecom hôm nay không khó vì thiếu thông tin.</h1>
-      <p class="hero-sub">Cái khó là biết điều gì thật sự quan trọng cho quyết định tiếp theo.</p>
-      <p class="hero-body">Khi nền tảng, quảng cáo, dòng tiền, vận hành, thương hiệu và AI đều thay đổi, người làm Ecom rất dễ loay hoay giữa quá nhiều lựa chọn. <strong style="color:var(--brown);font-weight:800">Ecom Truyền Kỳ giúp bạn nhìn toàn cảnh cuộc chơi</strong> — để biết mình đang ở đâu, nên ưu tiên điều gì, và chuẩn bị thế nào cho giai đoạn tới.</p>
+      <h1 class="big-title">Doanh thu đẹp chưa chắc còn tiền thật.</h1>
+      <p class="hero-sub">Ecom Truyền Kỳ không đưa thêm một mẹo bán hàng. Cuốn sách giúp người đang làm Ecom — hoặc đang chuẩn bị bước vào cuộc chơi này — nhìn lại những lớp đang chi phối thị trường hôm nay: sàn, ads, biên lợi nhuận, vận hành và AI.</p>
+      <p class="hero-body">Để biết mình nên ưu tiên điều gì trước khi xuống tiền, mở rộng hoặc đi tiếp.</p>
       <div class="hero-btns">
-        <a href="#pricing" class="btn-pri">Đặt sách →</a>
-        <a href="#preview" class="btn-sec">Đọc thử 30 trang</a>
+        <a href="#preview" class="btn-pri">Đọc thử 30 trang →</a>
+        <a href="#pricing" class="btn-sec">Đặt sách</a>
       </div>
     </div>
     <div class="hero-right fade-in">
@@ -910,8 +918,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="audience-card">
         <div class="audience-kicker">Nhóm 4</div>
-        <h3>Người từng làm tốt rồi chững lại</h3>
-        <p>Bạn từng có giai đoạn làm tốt. Nhưng càng mở rộng càng nặng: thêm người, thêm việc, thêm chi phí — trong khi kết quả không tăng tương xứng.</p>
+        <h3>Founder / chủ doanh nghiệp / người điều hành muốn nhìn lại mô hình Ecom</h3>
+        <p>Bạn không chỉ quan tâm hôm nay có bao nhiêu đơn. Bạn muốn nhìn lại mô hình của mình có còn khỏe không: phụ thuộc sàn đến đâu, biên lợi nhuận còn bao nhiêu, vận hành có chịu được scale không. Và hướng đi tiếp nên là tối ưu nội lực, mở kênh mới hay bước ra thị trường lớn hơn.</p>
       </div>
     </div>
     <p class="audience-note fade-in"><strong>Nếu bạn thuộc một trong bốn nhóm trên,</strong> cuốn sách này nên được đọc như một bản đồ tư duy: không hứa thay bạn ra quyết định, nhưng giúp bạn nhìn rõ hơn trước khi quyết định.</p>
@@ -921,7 +929,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- BRIDGE 2 -->
 <div class="bridge" id="bridge2" style="background:#2C1A0E">
   <div class="bridge-inner fade-in">
-    <p style="color:rgba(255,248,240,.7)">Dù bạn đang bán hàng, chạy ads, mới bước vào Ecom hay từng chững lại —</p>
+    <p style="color:rgba(255,248,240,.7)">Dù bạn đang bán hàng, chạy ads, mới bước vào Ecom hay đang nhìn lại mô hình —</p>
     <p style="color:#FFF8F0"><strong>cuối cùng vẫn có một câu hỏi phải nhìn thẳng: Sau tất cả chi phí, còn lại bao nhiêu tiền thật?</strong></p>
   </div>
 </div>
@@ -932,7 +940,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="fade-in">
       <span class="stats-label">Chi Phí Thực Tế</span>
       <h2 class="stats-title">Doanh thu đẹp chưa chắc còn tiền thật.</h2>
-      <p class="stats-sub">Với mô hình chi phí minh họa bên dưới, 100 triệu doanh thu có thể chỉ còn dưới 10 triệu lãi thật.</p>
+      <p class="stats-sub">Đây là mô hình minh họa dựa trên các lớp chi phí thường gặp được phân tích trong Chương 3. Tỷ lệ thực tế thay đổi theo ngành hàng, nền tảng, chính sách phí, biên giá vốn và cách vận hành của từng seller.</p>
     </div>
     <div class="stats-grid">
       <div class="stat-card fade-in">
@@ -1461,7 +1469,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <button class="sub-btn" id="submitBtn" onclick="doOrder()">Đặt sách & tạo mã QR thanh toán</button>
+      <button class="sub-btn" id="submitBtn" onclick="doOrder()">Tạo đơn & lấy mã QR thanh toán</button>
 
       <div class="form-microcopy" style="display:flex;flex-direction:column;gap:8px;align-items:flex-start;text-align:left">
         <span style="display:flex;align-items:center;gap:8px"><span style="color:var(--or);font-weight:700">✓</span> Ebook gửi qua email ngay sau thanh toán</span>
@@ -1933,7 +1941,7 @@ async function doOrder() {
   } catch (err) {
     alert('❌ Không kết nối được server. Vui lòng kiểm tra mạng và thử lại.');
   } finally {
-    btn.disabled = false; btn.textContent = 'Đặt sách & tạo mã QR thanh toán';
+    btn.disabled = false; btn.textContent = 'Tạo đơn & lấy mã QR thanh toán';
   }
 }
 
