@@ -827,7 +827,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="sticky-bot">
   <a href="#preview" class="bot-read">Đọc thử 30 trang</a>
   <div class="bot-middle">
-    <div class="bot-text">Combo Ebook + Sách in chỉ <strong>420.000đ</strong></div>
+    <div class="bot-text">Ebook đọc ngay chỉ <strong>199.000đ</strong></div>
     <a href="https://zalo.me/g/vcrcrg823" target="_blank" class="bot-support">Hỗ trợ Zalo</a>
   </div>
   <a href="#pricing" class="bot-buy">Đặt sách →</a>
@@ -1302,7 +1302,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="fade-in" style="text-align:center">
       <span class="sec-label" style="display:block;text-align:center">Chọn Loại Sách</span>
       <h2 class="big-title" style="font-size:clamp(32px,4vw,52px)">Chọn loại sách phù hợp</h2>
-      <p class="sec-sub" style="margin:0 auto;text-align:center">Đọc ngay bằng Ebook, chọn sách in để đọc chậm và ghi chú, hoặc chọn Combo nếu bạn muốn có cả hai.</p>
+      <p class="sec-sub" style="margin:0 auto;text-align:center">Hiện <strong>Sách in &amp; Combo đang tạm hết hàng</strong> — bạn có thể đặt <strong>Ebook</strong> để đọc ngay sau khi thanh toán. Chúng tôi sẽ mở lại bản in khi có hàng.</p>
     </div>
     <div class="real-book-proof fade-in">
       <div class="real-book-proof-img">
@@ -1805,9 +1805,14 @@ function onRadioChange(radio) {
 
 // ── Pricing cards → jump to form + auto select ──────────
 function selectProduct(val) {
+  // Chỉ Ebook đang mở bán — Sách in & Combo tạm hết hàng
+  if (val !== 'ebook') {
+    document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
   const radios = document.querySelectorAll('input[name="product"]');
   radios.forEach(r => {
-    if (r.value === val) {
+    if (r.value === val && !r.disabled) {
       r.checked = true;
       onRadioChange(r);
     }
@@ -1850,6 +1855,11 @@ async function doOrder() {
   const invoice_tax_code        = document.getElementById('f-invoice-tax-code').value.trim();
   const invoice_company_address = document.getElementById('f-invoice-company-address').value.trim();
   const invoice_email           = document.getElementById('f-invoice-email').value.trim().toLowerCase();
+
+  if (product && product !== 'ebook') {
+    alert('Hiện tại chỉ có Ebook đang được mở bán. Sách in và Combo đang tạm hết hàng.');
+    return;
+  }
 
   const phoneClean = phone.replace(/[\s.-]/g, '');
   const phoneValid = /^(0[35789][0-9]{8}|\+?84[35789][0-9]{8})$/.test(phoneClean);
