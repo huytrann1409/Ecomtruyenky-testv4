@@ -1092,7 +1092,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <li>Tài chính, gọi vốn và M&amp;A trong Ecom</li>
               <li>Kỉ nguyên vươn mình của Ecom</li>
               <li>Không ai cản nổi AI</li>
-              <li>Review độc giả về “Ecom Truyền Kỳ”</li>
+              <li>Review độc giả về "Ecom Truyền Kỳ"</li>
             </ul>
           </div>
 
@@ -1315,7 +1315,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="price-grid fade-in">
-      <div class="price-card">
+      <div class="price-card feat" style="position:relative;overflow:visible">
+        <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--or);color:#FFF8F0;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:6px 18px;border-radius:20px;white-space:nowrap;text-transform:uppercase">Đang mở bán</div>
         <span class="price-type">Ebook</span>
         <span class="price-ico">📱</span>
         <div class="price-amt"><span>₫</span>199.000</div>
@@ -1325,10 +1326,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li>Đọc trên mọi thiết bị</li>
           <li>Nhận ngay qua email</li>
         </ul>
-        <button class="pbtn out" onclick="selectProduct('ebook')">Chọn Ebook</button>
+        <button class="pbtn main" onclick="selectProduct('ebook')">Chọn Ebook</button>
       </div>
-      <div class="price-card feat" style="position:relative;overflow:visible">
-        <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--or);color:#FFF8F0;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:6px 18px;border-radius:20px;white-space:nowrap;text-transform:uppercase">Đọc ngay + giữ bản giấy</div>
+      <div class="price-card" style="position:relative;overflow:visible;opacity:.55">
+        <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--muted);color:#FFF8F0;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:6px 18px;border-radius:20px;white-space:nowrap;text-transform:uppercase">Tạm hết hàng</div>
         <span class="price-type">Combo</span>
         <span class="price-ico">📚</span>
         <div class="price-amt"><span>₫</span>420.000</div>
@@ -1339,9 +1340,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li>Có sách in để đọc chậm, ghi chú và đọc lại</li>
           <li>Tiết kiệm 128.000đ so với mua lẻ</li>
         </ul>
-        <button class="pbtn main" onclick="selectProduct('combo')">Chọn Combo</button>
+        <button class="pbtn out" disabled style="opacity:.7;cursor:not-allowed;border-color:var(--muted);color:var(--muted)">Tạm hết hàng</button>
       </div>
-      <div class="price-card">
+      <div class="price-card" style="position:relative;overflow:visible;opacity:.55">
+        <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--muted);color:#FFF8F0;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:6px 18px;border-radius:20px;white-space:nowrap;text-transform:uppercase">Tạm hết hàng</div>
         <span class="price-type">Sách In</span>
         <span class="price-ico">📖</span>
         <div class="price-amt"><span>₫</span>349.000</div>
@@ -1350,7 +1352,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li>Sách in bản đầy đủ</li>
           <li>Giao hàng toàn quốc</li>
         </ul>
-        <button class="pbtn out" onclick="selectProduct('sach')">Chọn Sách in</button>
+        <button class="pbtn out" disabled style="opacity:.7;cursor:not-allowed;border-color:var(--muted);color:var(--muted)">Tạm hết hàng</button>
       </div>
     </div>
     <div class="price-microcopy fade-in">
@@ -1398,20 +1400,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="fg full">
           <label class="fl">Chọn loại sách *</label>
           <div class="radio-group" id="radioGroup">
-            <label class="radio-opt" id="opt-ebook">
-              <input type="radio" name="product" value="ebook" onchange="onRadioChange(this)">
+            <label class="radio-opt selected" id="opt-ebook">
+              <input type="radio" name="product" value="ebook" checked onchange="onRadioChange(this)">
               <span class="radio-opt-label">Ebook</span>
               <span class="radio-opt-price">199.000đ</span>
             </label>
-            <label class="radio-opt" id="opt-sach">
-              <input type="radio" name="product" value="sach" onchange="onRadioChange(this)">
+            <label class="radio-opt" id="opt-sach" style="opacity:.5;cursor:not-allowed">
+              <input type="radio" name="product" value="sach" disabled onchange="onRadioChange(this)">
               <span class="radio-opt-label">Sách in</span>
-              <span class="radio-opt-price">349.000đ</span>
+              <span class="radio-opt-price" style="color:var(--muted)">Tạm hết hàng</span>
             </label>
-            <label class="radio-opt" id="opt-combo">
-              <input type="radio" name="product" value="combo" onchange="onRadioChange(this)">
+            <label class="radio-opt" id="opt-combo" style="opacity:.5;cursor:not-allowed">
+              <input type="radio" name="product" value="combo" disabled onchange="onRadioChange(this)">
               <span class="radio-opt-label">Combo Ebook + Sách in</span>
-              <span class="radio-opt-price">420.000đ</span>
+              <span class="radio-opt-price" style="color:var(--muted)">Tạm hết hàng</span>
             </label>
           </div>
           <div id="radioErr" style="display:none;font-size:12px;color:#dc2626;margin-top:5px">Vui lòng chọn loại sách.</div>
@@ -1497,7 +1499,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </details>
       <details class="faq-item">
         <summary>Tôi mới bước vào Ecom thì có đọc được không?</summary>
-        <div class="faq-answer">Có, nếu bạn muốn hiểu bức tranh tổng thể trước khi bắt đầu. Cuốn này không hứa giúp bạn “kiếm tiền ngay”, nhưng phù hợp nếu bạn đang sợ nghe quá nhiều lời khuyên trái chiều và muốn tránh một số sai lầm quen thuộc của người đi trước.</div>
+        <div class="faq-answer">Có, nếu bạn muốn hiểu bức tranh tổng thể trước khi bắt đầu. Cuốn này không hứa giúp bạn "kiếm tiền ngay", nhưng phù hợp nếu bạn đang sợ nghe quá nhiều lời khuyên trái chiều và muốn tránh một số sai lầm quen thuộc của người đi trước.</div>
       </details>
       <details class="faq-item">
         <summary>Tôi đang bán rồi, sách có thực tế với tôi không?</summary>
@@ -2297,6 +2299,12 @@ function closePreview() {
 
 // ── Quantity initial state ───────────────────────────────
 setQuantity(1, false);
+
+// ── Init: kích hoạt trạng thái form cho radio ebook đang checked ─
+(function initDefaultProduct() {
+  const ebookRadio = document.querySelector('input[name="product"][value="ebook"]');
+  if (ebookRadio && ebookRadio.checked) onRadioChange(ebookRadio);
+})();
 
 
 // ── Hero asset diagnostics: báo lỗi rõ trong Console nếu asset không load được ──
