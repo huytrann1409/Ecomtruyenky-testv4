@@ -1315,6 +1315,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="price-grid fade-in">
+      <div class="price-card" style="position:relative;overflow:visible;opacity:.5;pointer-events:none">
+        <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--muted);color:#FFF8F0;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:6px 18px;border-radius:20px;white-space:nowrap;text-transform:uppercase">Tạm hết hàng</div>
+        <span class="price-type">Combo</span>
+        <span class="price-ico">📚</span>
+        <div class="price-amt"><span>₫</span>420.000</div>
+        <div class="price-save">Tiết kiệm 128.000đ so với mua lẻ</div>
+        <p class="price-desc">Nhận Ebook đọc ngay hôm nay — có sách in để đọc chậm, ghi chú và giữ lâu dài.</p>
+        <ul class="price-feats">
+          <li>Nhận Ebook ngay sau khi thanh toán</li>
+          <li>Có sách in để đọc chậm, ghi chú và đọc lại</li>
+          <li>Tiết kiệm 128.000đ so với mua lẻ</li>
+        </ul>
+        <button class="pbtn out" disabled tabindex="-1" style="opacity:.6;cursor:not-allowed;border-color:var(--muted);color:var(--muted)">Hết hàng</button>
+      </div>
       <div class="price-card feat" style="position:relative;overflow:visible">
         <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--or);color:#FFF8F0;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:6px 18px;border-radius:20px;white-space:nowrap;text-transform:uppercase">Đang mở bán</div>
         <span class="price-type">Ebook</span>
@@ -1328,21 +1342,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
         <button class="pbtn main" onclick="selectProduct('ebook')">Chọn Ebook</button>
       </div>
-      <div class="price-card" style="position:relative;overflow:visible;opacity:.55">
-        <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--muted);color:#FFF8F0;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:6px 18px;border-radius:20px;white-space:nowrap;text-transform:uppercase">Tạm hết hàng</div>
-        <span class="price-type">Combo</span>
-        <span class="price-ico">📚</span>
-        <div class="price-amt"><span>₫</span>420.000</div>
-        <div class="price-save">Tiết kiệm 128.000đ so với mua lẻ</div>
-        <p class="price-desc">Nhận Ebook đọc ngay hôm nay — có sách in để đọc chậm, ghi chú và giữ lâu dài.</p>
-        <ul class="price-feats">
-          <li>Nhận Ebook ngay sau khi thanh toán</li>
-          <li>Có sách in để đọc chậm, ghi chú và đọc lại</li>
-          <li>Tiết kiệm 128.000đ so với mua lẻ</li>
-        </ul>
-        <button class="pbtn out" disabled style="opacity:.7;cursor:not-allowed;border-color:var(--muted);color:var(--muted)">Tạm hết hàng</button>
-      </div>
-      <div class="price-card" style="position:relative;overflow:visible;opacity:.55">
+      <div class="price-card" style="position:relative;overflow:visible;opacity:.5;pointer-events:none">
         <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--muted);color:#FFF8F0;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:6px 18px;border-radius:20px;white-space:nowrap;text-transform:uppercase">Tạm hết hàng</div>
         <span class="price-type">Sách In</span>
         <span class="price-ico">📖</span>
@@ -1352,7 +1352,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li>Sách in bản đầy đủ</li>
           <li>Giao hàng toàn quốc</li>
         </ul>
-        <button class="pbtn out" disabled style="opacity:.7;cursor:not-allowed;border-color:var(--muted);color:var(--muted)">Tạm hết hàng</button>
+        <button class="pbtn out" disabled tabindex="-1" style="opacity:.6;cursor:not-allowed;border-color:var(--muted);color:var(--muted)">Hết hàng</button>
       </div>
     </div>
     <div class="price-microcopy fade-in">
@@ -1405,13 +1405,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span class="radio-opt-label">Ebook</span>
               <span class="radio-opt-price">199.000đ</span>
             </label>
-            <label class="radio-opt" id="opt-sach" style="opacity:.5;cursor:not-allowed">
-              <input type="radio" name="product" value="sach" disabled onchange="onRadioChange(this)">
+            <label class="radio-opt" id="opt-sach" style="opacity:.5;cursor:not-allowed;pointer-events:none;user-select:none">
+              <input type="radio" name="product" value="sach" disabled tabindex="-1" onchange="onRadioChange(this)">
               <span class="radio-opt-label">Sách in</span>
               <span class="radio-opt-price" style="color:var(--muted)">Tạm hết hàng</span>
             </label>
-            <label class="radio-opt" id="opt-combo" style="opacity:.5;cursor:not-allowed">
-              <input type="radio" name="product" value="combo" disabled onchange="onRadioChange(this)">
+            <label class="radio-opt" id="opt-combo" style="opacity:.5;cursor:not-allowed;pointer-events:none;user-select:none">
+              <input type="radio" name="product" value="combo" disabled tabindex="-1" onchange="onRadioChange(this)">
               <span class="radio-opt-label">Combo Ebook + Sách in</span>
               <span class="radio-opt-price" style="color:var(--muted)">Tạm hết hàng</span>
             </label>
